@@ -1,0 +1,22 @@
+{
+  "pages": {
+    "/(kambaz)/courses/[cid]/home/page": [
+      "static/chunks/_2b2515._.js",
+      "static/chunks/app_favicon_ico_mjs_5930e7._.js",
+      "static/chunks/_cbef84._.js",
+      "static/chunks/app_not-found_tsx_36ac26._.js",
+      "static/chunks/_8ffccc._.js",
+      "static/chunks/app_(kambaz)_layout_tsx_36ac26._.js",
+      "static/chunks/app_(kambaz)_courses_[cid]_layout_tsx_922487._.js",
+      "static/chunks/app_(kambaz)_courses_[cid]_layout_tsx_21a39e._.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc._.js",
+      "static/chunks/node_modules_next_dist_compiled_107ce8._.js",
+      "static/chunks/node_modules_next_dist_client_9bb038._.js",
+      "static/chunks/node_modules_next_dist_d09de6._.js",
+      "static/chunks/node_modules_@swc_helpers_cjs_00636a._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_ce799c._.js",
+      "static/chunks/_c4c472._.js",
+      "static/chunks/_cb9de2._.js"
+    ]
+  }
+}

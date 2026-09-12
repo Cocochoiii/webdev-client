@@ -1,0 +1,8 @@
+{
+  "/labs/lab1/page": "app/labs/lab1/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/labs/page": "app/labs/page.js",
+  "/(kambaz)/page": "app/(kambaz)/page.js",
+  "/(kambaz)/account/signin/page": "app/(kambaz)/account/signin/page.js",
+  "/(kambaz)/dashboard/page": "app/(kambaz)/dashboard/page.js"
+}
