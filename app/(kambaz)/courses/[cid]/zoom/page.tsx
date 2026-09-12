@@ -1,0 +1,8 @@
+// The Zoom screen is a placeholder for now
+export default function Zoom() {
+  return (
+    <div id="wd-zoom">
+      <h3>Zoom</h3>
+    </div>
+  );
+}

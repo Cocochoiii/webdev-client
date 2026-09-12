@@ -1,0 +1,30 @@
+// The Labs home page shows my name and links to every lab
+import Link from "next/link";
+
+export default function Labs() {
+  return (
+    <div id="wd-labs">
+      <h1>Labs</h1>
+      <h5>Coco Choi</h5>
+      <h5>CS5610 Web Development, Fall 2026, Section 09</h5>
+      <ul>
+        <li><Link href="/labs/lab1" id="wd-lab1-link">Lab 1: HTML Examples</Link></li>
+        <li><Link href="/labs/lab2" id="wd-lab2-link">Lab 2: CSS Basics</Link></li>
+        <li><Link href="/labs/lab3" id="wd-lab3-link">Lab 3: JavaScript Fundamentals</Link></li>
+        <li><Link href="/labs/lab4" id="wd-lab4-link">Lab 4: State and Redux</Link></li>
+        <li><Link href="/labs/lab5" id="wd-lab5-link">Lab 5: Node and Express</Link></li>
+        <li><Link href="/" id="wd-kambaz-link">Kambaz</Link></li>
+      </ul>
+      <p>
+        <a
+          id="wd-github"
+          href="https://github.com/Cocochoiii/webdev-client"
+          target="_blank"
+          rel="noreferrer"
+        >
+          My GitHub repository: Cocochoiii/webdev-client
+        </a>
+      </p>
+    </div>
+  );
+}
