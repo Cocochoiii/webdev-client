@@ -82,7 +82,7 @@ export default function Tables() {
         </tfoot>
       </table>
 
-      <h5>My week during the Amazon Co-op</h5>
+      <h5>My week during my Amazon internship</h5>
       <table border={1} width="100%" id="wd-your-table">
         <thead>
           <tr>
@@ -94,17 +94,17 @@ export default function Tables() {
         <tbody>
           <tr>
             <td align="center">Monday</td>
-            <td>Amazon Co-op, then CS5610 lecture at night</td>
+            <td>Amazon internship, then CS5610 lecture at night</td>
             <td align="right">11</td>
           </tr>
           <tr>
             <td align="center">Wednesday</td>
-            <td>Amazon Co-op, then I read the textbook chapter</td>
+            <td>Amazon internship, then I read the textbook chapter</td>
             <td align="right">10</td>
           </tr>
           <tr>
             <td align="center">Friday</td>
-            <td>Amazon Co-op, then I start the assignment</td>
+            <td>Amazon internship, then I start the assignment</td>
             <td align="right">10</td>
           </tr>
           <tr>

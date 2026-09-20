@@ -18,7 +18,7 @@ export default function TOC() {
         </li>
         <li><Link href="/" id="wd-kambaz-link">Kambaz</Link></li>
       </ul>
-      <p>Coco Choi - I write code on weekdays and I walk boarding dogs on weekends.</p>
+      <p>Coco Choi - I write code on weekdays and I hike with dogs on weekends.</p>
     </div>
   );
 }

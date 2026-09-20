@@ -48,7 +48,7 @@ export default function HighlightedParagraphLab() {
         borderRadius="0px"
       />
       <HighlightedParagraph
-        text="I am Coco. I do a Co-op at Amazon, I board dogs on weekends, and I have two very round cats."
+        text="I am Coco. This Fall I am an intern at Amazon, I take dogs on hikes on weekends, and I have two very round cats."
         backgroundColor="#fff0f5"
         borderColor="hotpink"
         borderWidth={3}

@@ -27,9 +27,10 @@ export default function HeadingTags() {
 
       <div id="wd-your-heading">
         <h4>Coco Choi</h4>
-        I am a graduate student at Northeastern University. Right now I am on a
-        Co-op at Amazon and I take this Web Development class at the same time.
-        Some days are long, but I like that I can{" "}
+        I am a graduate student at Northeastern University. This Fall I am an
+        intern at Amazon, and I take this Web Development class at the same
+        time. On weekends I take dogs on hikes, and my two cats wait for us at
+        home. Some days are long, but I like that I can{" "}
         <span id="wd-your-span">build</span> something real after every lecture.
       </div>
 

@@ -73,7 +73,7 @@ export default function HighlightedBoxLab() {
         <ul>
           <li>Write clean HTML first, and add the styling later.</li>
           <li>Build one full stack feature by myself, from the screen to the database.</li>
-          <li>Use what I learn here in my Amazon Co-op work.</li>
+          <li>Use what I learn here in my Amazon internship.</li>
           <li>Deploy every assignment before the weekend ends.</li>
         </ul>
       </HighlightedBox>

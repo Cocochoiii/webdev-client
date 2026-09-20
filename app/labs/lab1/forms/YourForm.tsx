@@ -31,7 +31,7 @@ export default function YourForm() {
         id="wd-your-bio"
         cols={40}
         rows={6}
-        defaultValue="I am a graduate student at Northeastern. I am on a Co-op at Amazon right now, so I see large systems every day, but I only touch a small part of them. In this class I want to build a whole web app on my own, from the screen the user clicks to the data in the database."
+        defaultValue="I am a graduate student at Northeastern. This Fall I am an intern at Amazon, so I see large systems every day, but I only touch a small part of them. In this class I want to build a whole web app on my own, from the screen the user clicks to the data in the database. On weekends I take dogs on hikes, and my two cats keep me company while I do homework."
       />
       <br />
 
@@ -58,18 +58,18 @@ export default function YourForm() {
       />
       <label htmlFor="wd-your-graduate">Graduate</label>
       <br />
-      <label>Am I on Co-op this term?</label>
+      <label>Am I working this term?</label>
       <br />
       <input
         type="radio"
-        name="your-coop"
-        id="wd-your-on-coop"
+        name="your-work"
+        id="wd-your-work-yes"
         defaultChecked
       />
-      <label htmlFor="wd-your-on-coop">Yes, I am at Amazon</label>
+      <label htmlFor="wd-your-work-yes">Yes, I am an intern at Amazon</label>
       <br />
-      <input type="radio" name="your-coop" id="wd-your-no-coop" />
-      <label htmlFor="wd-your-no-coop">No, classes only</label>
+      <input type="radio" name="your-work" id="wd-your-work-no" />
+      <label htmlFor="wd-your-work-no">No, classes only</label>
       <br />
 
       <h5>Checkboxes</h5>
@@ -135,10 +135,10 @@ export default function YourForm() {
         id="wd-your-grad-year"
       />
       <br />
-      <label htmlFor="wd-your-start-date">Co-op start date: </label>
+      <label htmlFor="wd-your-start-date">Internship start date: </label>
       <input
         type="date"
-        defaultValue="2026-07-06"
+        defaultValue="2026-09-08"
         min="2000-01-01"
         max="2035-12-31"
         id="wd-your-start-date"

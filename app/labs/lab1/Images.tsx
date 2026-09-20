@@ -22,7 +22,7 @@ export default function Images() {
       />
       <br />
 
-      One of my boarding dogs. We stopped by the pond after our walk:
+      One of my boarding dogs. We stopped by the pond after our hike:
       <br />
       <img
         id="wd-your-image"

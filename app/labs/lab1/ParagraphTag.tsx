@@ -31,10 +31,11 @@ export default function ParagraphTag() {
         two cats watch all of this from the top of the shelf.
       </p>
       <p id="wd-p-your-2">
-        I take CS5610 because I want to build a whole web app by myself. At work
-        I see big systems, but I only touch one small part. In this class I
-        write the user interface, the server, and the database, so I can finally
-        see how all the pieces fit together.
+        This Fall I am an intern at Amazon, and I take CS5610 because I want to
+        build a whole web app by myself. At work I see big systems, but I only
+        touch one small part. In this class I write the user interface, the
+        server, and the database, so I can finally see how all the pieces fit
+        together.
       </p>
 
       <p id="wd-ai-p">
