@@ -37,7 +37,7 @@ export default function ListTags() {
         <li>The Forever War</li>
       </ul>
 
-      My favorite books (in no particular order)
+      My own favorite books (in no particular order)
       <ul id="wd-your-books">
         <li>The Odyssey</li>
         <li>Project Hail Mary</li>
