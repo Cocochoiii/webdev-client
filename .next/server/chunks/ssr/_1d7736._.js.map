@@ -1,9 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/cocochoi/Desktop/Coco/NEU_CSA/ComputerScience/Web%20Development/CS5610/webdev-client/app/%28kambaz%29/page.tsx"],"sourcesContent":["// The root route sends people to the Sign in screen\nimport { redirect } from \"next/navigation\";\n\nexport default function Kambaz() {\n  redirect(\"/account/signin\");\n}\n"],"names":[],"mappings":"AAAA,oDAAoD;;;;AACpD;AAAA;;AAEe,SAAS;IACtB,CAAA,GAAA,qLAAA,CAAA,WAAQ,AAAD,EAAE;AACX"}},
-    {"offset": {"line": 17, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":""}},
-    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

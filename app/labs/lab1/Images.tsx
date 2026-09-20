@@ -40,6 +40,15 @@ export default function Images() {
         alt="My two British Shorthair cats hugging each other"
       />
       <br />
+      A sample image from a public NASA URL:
+      <br />
+      <img
+        id="wd-ai-image"
+        src="https://www.nasa.gov/wp-content/uploads/2023/03/main_image_star-forming_region_carina_nircam_final-5mb.jpg"
+        width="200px"
+        alt="Carina Nebula captured by the James Webb Space Telescope"
+      />
+      <br />
     </div>
   );
 }

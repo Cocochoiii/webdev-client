@@ -12,14 +12,9 @@ export default function TOC() {
         <li><Link href="/labs/lab4" id="wd-toc-lab4-link">Lab 4</Link></li>
         <li><Link href="/labs/lab5" id="wd-toc-lab5-link">Lab 5</Link></li>
         <li>
-          <a
-            href="https://webdev-client.vercel.app/book/ch1"
-            id="wd-toc-book-link"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <Link href="/book/ch1" id="wd-toc-book-link">
             Chapter 1
-          </a>
+          </Link>
         </li>
         <li><Link href="/" id="wd-kambaz-link">Kambaz</Link></li>
       </ul>
