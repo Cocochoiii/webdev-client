@@ -18,6 +18,9 @@ export default function Signin() {
         className="wd-password mb-2 w-full rounded border border-neutral-300 px-3 py-2"
         defaultValue="123"
       />
+      <label htmlFor="wd-ai-signin-note" className="mb-1 block text-sm">
+        Sample note
+      </label>
       <input
         id="wd-ai-signin-note"
         placeholder="sample note"

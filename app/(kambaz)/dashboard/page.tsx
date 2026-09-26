@@ -84,7 +84,7 @@ export default function Dashboard() {
           image="/images/course11.jpg"
         />
         <CourseCard
-          id="9999"
+          id="CS9999"
           title="CS9999 Sample Course"
           subtitle="Assistant-generated sample - not my course"
           image="/images/reactjs.jpg"

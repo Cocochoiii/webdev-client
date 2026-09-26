@@ -1,4 +1,5 @@
 // React Icons turns icons from many families into React components
+import "@/app/labs/lab2/tailwind/utilities.css";
 import { FaCalendar, FaEnvelopeOpenText, FaRegClock } from "react-icons/fa";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaBookBible } from "react-icons/fa6";
