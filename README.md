@@ -2,7 +2,7 @@
 
 CS5610 Web Development — Assignment 1 (Chapter 1: HTML user interfaces)
 
-Coco Choi · Section 04
+Coco Choi · Section 09
 
 ## What is in here
 
