@@ -1,8 +1,8 @@
 // Breakpoint prefixes like md: only apply on wider screens
 export default function TailwindResponsiveDesign() {
   return (
-    <div>
-      <h2 className="text-3xl font-bold mb-4 mt-8">Responsive Design</h2>
+    <div className="font-sans">
+      <h2 className="text-3xl font-bold mb-4">Responsive Design</h2>
       <div className="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
         <div className="md:flex">
           <div className="md:shrink-0">

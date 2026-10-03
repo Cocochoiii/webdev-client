@@ -1,10 +1,10 @@
 // Filter classes blur, gray out, or brighten an image
 export default function TailwindFilters() {
+  // reactjs.jpg is used here so the lab runs out of the box.
   const src = "/images/reactjs.jpg";
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-4 mt-8">Filters</h2>
-      <h3>Blurs</h3>
+      <h2>Blurs</h2>
       <div className="flex">
         <img className="blur-none w-1/4" src={src} alt="blur none" />
         <img className="blur-sm w-1/4" src={src} alt="blur sm" />

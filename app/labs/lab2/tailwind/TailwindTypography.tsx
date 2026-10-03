@@ -2,7 +2,7 @@
 export default function TailwindTypography() {
   return (
     <div>
-      <h2 className="text-3xl mt-8">Font Size</h2>
+      <h2 className="text-3xl">Font Size</h2>
       <p className="text-sm">This is small text.</p>
       <p className="text-base">This is base text.</p>
       <p className="text-lg">This is large text.</p>

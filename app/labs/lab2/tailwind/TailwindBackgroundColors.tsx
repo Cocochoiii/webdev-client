@@ -2,7 +2,7 @@
 export default function TailwindBackgroundColors() {
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-4 mt-8">Background Colors</h2>
+      <h2 className="text-3xl font-bold mb-4">Background Colors</h2>
       <div className="bg-red-500 text-white p-4 mb-4">
         This div has a red background.
       </div>

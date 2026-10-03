@@ -1,4 +1,5 @@
 // Flex lines up children in a row without floats
+import "./index.css";
 export default function Flex() {
   return (
     <div id="wd-css-flex">
