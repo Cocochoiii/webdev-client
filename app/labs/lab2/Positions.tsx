@@ -27,7 +27,7 @@ export default function Positions() {
 
       <div id="wd-css-position-absolute">
         <h2>Absolute position</h2>
-        <div className="wd-pos-relative" style={{ height: 200 }}>
+        <div className="wd-pos-relative" style={{ height: 150 }}>
           <div className="wd-pos-absolute-10-10 wd-bg-color-yellow wd-dimension-portrait">
             Portrait
           </div>

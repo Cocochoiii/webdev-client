@@ -11,10 +11,6 @@ import "@/app/labs/lab2/tailwind/utilities.css";
 
 export default function KambazNavigation() {
   const pathname = usePathname() ?? "";
-  const active =
-    "block bg-white py-3 text-center text-sm text-red-600 no-underline";
-  const idle =
-    "block bg-black py-3 text-center text-sm text-white no-underline";
   return (
     <nav
       id="wd-kambaz-navigation"
@@ -37,7 +33,11 @@ export default function KambazNavigation() {
       <Link
         href="/account"
         id="wd-account-link"
-        className={pathname.startsWith("/account") ? active : idle}
+        className={
+          pathname.startsWith("/account")
+            ? "block bg-white py-3 text-center text-sm text-red-600 no-underline"
+            : "block bg-black py-3 text-center text-sm text-white no-underline"
+        }
       >
         <FaRegCircleUser
           className={
@@ -52,7 +52,11 @@ export default function KambazNavigation() {
       <Link
         href="/dashboard"
         id="wd-dashboard-link"
-        className={pathname === "/dashboard" ? active : idle}
+        className={
+          pathname === "/dashboard"
+            ? "block bg-white py-3 text-center text-sm text-red-600 no-underline"
+            : "block bg-black py-3 text-center text-sm text-white no-underline"
+        }
       >
         <AiOutlineDashboard className="inline-block text-3xl text-red-600" />
         <br />
@@ -61,7 +65,11 @@ export default function KambazNavigation() {
       <Link
         href="/dashboard"
         id="wd-course-link"
-        className={pathname.startsWith("/courses") ? active : idle}
+        className={
+          pathname.startsWith("/courses")
+            ? "block bg-white py-3 text-center text-sm text-red-600 no-underline"
+            : "block bg-black py-3 text-center text-sm text-white no-underline"
+        }
       >
         <LiaBookSolid className="inline-block text-3xl text-red-600" />
         <br />
@@ -70,7 +78,11 @@ export default function KambazNavigation() {
       <Link
         href="/calendar"
         id="wd-calendar-link"
-        className={pathname.startsWith("/calendar") ? active : idle}
+        className={
+          pathname.startsWith("/calendar")
+            ? "block bg-white py-3 text-center text-sm text-red-600 no-underline"
+            : "block bg-black py-3 text-center text-sm text-white no-underline"
+        }
       >
         <IoCalendarOutline className="inline-block text-3xl text-red-600" />
         <br />
@@ -79,18 +91,30 @@ export default function KambazNavigation() {
       <Link
         href="/inbox"
         id="wd-inbox-link"
-        className={pathname.startsWith("/inbox") ? active : idle}
+        className={
+          pathname.startsWith("/inbox")
+            ? "block bg-white py-3 text-center text-sm text-red-600 no-underline"
+            : "block bg-black py-3 text-center text-sm text-white no-underline"
+        }
       >
         <FaInbox className="inline-block text-3xl text-red-600" />
         <br />
         Inbox
       </Link>
-      <Link href="/labs" id="wd-labs-link" className={idle}>
+      <Link
+        href="/labs"
+        id="wd-labs-link"
+        className="block bg-black py-3 text-center text-sm text-white no-underline"
+      >
         <FaBook className="inline-block text-3xl text-red-600" />
         <br />
         Labs
       </Link>
-      <Link href="/labs" id="wd-ai-nav-help" className={idle}>
+      <Link
+        href="/labs"
+        id="wd-ai-nav-help"
+        className="block bg-black py-3 text-center text-sm text-white no-underline"
+      >
         <FaCircleQuestion className="inline-block text-3xl text-red-600" />
         <br />
         Help
