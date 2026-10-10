@@ -1,5 +1,4 @@
 // The Assignments screen has a search box, buttons, and the list
-import "@/app/labs/lab2/tailwind/utilities.css";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import AssignmentItem from "./AssignmentItem";
 

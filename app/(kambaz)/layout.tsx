@@ -1,5 +1,4 @@
 // This layout puts the fixed Kambaz sidebar beside every screen
-import "@/app/labs/lab2/tailwind/utilities.css";
 import "./kambaz.css";
 import type { ReactNode } from "react";
 import KambazNavigation from "./Navigation";
