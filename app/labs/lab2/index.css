@@ -6,14 +6,15 @@
   color: white;
 } */
 
-/* My own tag rule: every h3 gets a beige background */
-h3 {
+/* My own tag rule: every h3 inside Lab 2 gets a beige background.
+   Written after #wd-lab2 so it does not leak into other pages. */
+#wd-lab2 h3 {
   background-color: beige;
   color: darkgreen;
 }
 
-/* Sample tag rule for every h2 */
-h2 {
+/* Sample tag rule for every h2 inside Lab 2 */
+#wd-lab2 h2 {
   background-color: navy;
   color: white;
 }
@@ -405,7 +406,7 @@ img.wd-float-right {
 .wd-flex-grow-1 {
   flex-grow: 1;
 }
-.wd-width-75px {
+.wd-width-110px {
   /* Room for "Column 1" + 10px padding under border-box */
   width: 110px;
   flex-shrink: 0;

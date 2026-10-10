@@ -1,5 +1,4 @@
 // The float property lets text wrap around an image or a box
-import "./index.css";
 const STARSHIP =
   "https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg";
 const LOREM =

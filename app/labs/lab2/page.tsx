@@ -1,6 +1,5 @@
 // Lab 2 practices CSS selectors and imports one component for each topic
 import "./index.css";
-import Link from "next/link";
 import ForegroundColors from "./ForegroundColors";
 import BackgroundColors from "./BackgroundColors";
 import Borders from "./Borders";
@@ -23,9 +22,9 @@ export default function Lab2() {
     <div id="wd-lab2">
       <h2>Lab 2 - Cascading Style Sheets</h2>
       <p>
-        <Link href="/labs/lab2/tailwind" id="wd-tailwind-link">
-          Tailwind samples for Lab 2
-        </Link>
+        <a href="/labs/lab2/tailwind" id="wd-tailwind-link">
+          Open Tailwind CSS lab →
+        </a>
       </p>
 
       <h3>Styling with the STYLE attribute</h3>
@@ -96,7 +95,7 @@ export default function Lab2() {
             <p className="wd-selector-3">
               This paragraph&apos;s red background is referenced as
               <br />
-              .selector-2 .selector3
+              .wd-selector-1 .wd-selector-3
               <br />
               meaning the descendant of some ancestor.
               <br />
