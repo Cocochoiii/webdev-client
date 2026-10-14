@@ -4,6 +4,7 @@ CS5610 Web Development
 
 - `main` branch — Assignment 1 (Chapter 1: HTML user interfaces)
 - `a2` branch — Assignment 2 (Chapter 2: CSS and Tailwind)
+- `a3` branch — Assignment 3 (Chapter 3: JavaScript and a data driven Kambaz)
 
 Coco Choi · Section 09
 
@@ -12,6 +13,8 @@ Coco Choi · Section 09
 - `app/labs` — Labs index, table of contents, and Lab 1 through Lab 5
 - `app/labs/lab1` — one component per HTML topic, plus a `forms` folder
 - `app/labs/lab2` — the CSS samples and `index.css`; Tailwind samples live in `app/labs/lab2/tailwind`
+- `app/labs/lab3` — one component per JavaScript topic, plus `add/[a]/[b]` and the `todos` folder
+- `app/(kambaz)/database` — the JSON files the Kambaz screens read
 - `app/(kambaz)` — the Kambaz prototype screens
 - `app/not-found.tsx` — the page I show for routes that do not exist yet
 
@@ -26,6 +29,8 @@ All routes use lower case, the same way the book writes them.
 | `/labs/lab1` | all Chapter 1 HTML examples |
 | `/labs/lab2` | Chapter 2 CSS examples and React Icons |
 | `/labs/lab2/tailwind` | Chapter 2 Tailwind examples |
+| `/labs/lab3` | Chapter 3 JavaScript examples |
+| `/labs/lab3/add/[a]/[b]` | adds the two numbers in the path |
 | `/account/signin` `/account/signup` `/account/profile` | account screens |
 | `/dashboard` | course cards |
 | `/courses/[cid]/home` | modules plus course status |
