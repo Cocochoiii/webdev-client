@@ -1,5 +1,5 @@
+// The Modules screen filters modules.json by the course id in the URL
 "use client";
-// the Modules screen filters modules.json by the course id in the url
 import { useParams } from "next/navigation";
 import Module from "./Module";
 import Lesson from "./Lesson";

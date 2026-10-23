@@ -1,4 +1,4 @@
-// the Dashboard maps the courses json onto cards
+// The Dashboard maps the courses JSON onto cards
 import CourseCard from "./CourseCard";
 import * as db from "../database";
 export default function Dashboard() {

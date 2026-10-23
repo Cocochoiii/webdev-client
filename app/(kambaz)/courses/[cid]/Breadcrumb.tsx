@@ -1,5 +1,5 @@
+// The breadcrumb shows the course name and the last part of the URL
 "use client";
-// the breadcrumb shows the course name and the last part of the url
 import { usePathname } from "next/navigation";
 export default function Breadcrumb({
   course,

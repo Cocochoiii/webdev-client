@@ -1,4 +1,4 @@
-// findIndex returns the position of the first match or -1
+// FindIndex returns the position of the first match or -1
 export default function FindIndex() {
   let numberArray1 = [1, 2, 4, 5, 6];
   let stringArray1 = ["string1", "string3"];

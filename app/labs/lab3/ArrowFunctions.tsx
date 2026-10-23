@@ -1,4 +1,4 @@
-// => replaces the function keyword
+// The arrow replaces the function keyword
 const subtract = (a: number, b: number) => {
   return a - b;
 };

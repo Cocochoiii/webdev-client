@@ -1,4 +1,4 @@
-// one place to import every json file as db
+// One place to import every JSON file as db
 import courses from "./courses.json";
 import modules from "./modules.json";
 import assignments from "./assignments.json";

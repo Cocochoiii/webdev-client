@@ -1,4 +1,4 @@
-// the People screen keeps the users enrolled in this course
+// The People screen keeps only the users enrolled in this course
 import { FaUserCircle } from "react-icons/fa";
 import * as db from "../../../../database";
 export default async function PeopleTable({

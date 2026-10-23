@@ -1,4 +1,4 @@
-// var, let, and const declare variables and constants
+// Three ways to declare a value: var, let, and const
 export default function VariablesAndConstants() {
   var functionScoped = 2;
   let blockScoped = 5;

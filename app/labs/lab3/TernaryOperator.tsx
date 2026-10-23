@@ -1,4 +1,4 @@
-// a ternary is a one line if else
+// A ternary is a one line if else
 export default function TernaryOperator() {
   let loggedIn = true;
   const hour = 9;

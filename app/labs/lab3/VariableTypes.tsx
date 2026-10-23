@@ -1,4 +1,4 @@
-// typeof tells me what kind of value a variable holds
+// The typeof operator tells me what kind of value a variable holds
 export default function VariableTypes() {
   let numberVariable = 123;
   let floatingPointNumber = 234.345;

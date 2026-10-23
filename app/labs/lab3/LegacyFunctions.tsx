@@ -1,4 +1,4 @@
-// the function keyword is the old ES5 way to declare a function
+// The function keyword is the old ES5 way to declare a function
 function add(a: number, b: number) {
   return a + b;
 }

@@ -1,4 +1,4 @@
-// these links put the numbers in the url path
+// These links put the numbers in the URL path
 import Link from "next/link";
 export default function PathParameters() {
   return (

@@ -1,4 +1,4 @@
-// reduce folds the whole array down to one value
+// Reduce folds the whole array down to one value
 export default function ReduceFunction() {
   const numbers = [1, 2, 3, 4, 5];
   const sum = numbers.reduce((total, n) => total + n, 0);

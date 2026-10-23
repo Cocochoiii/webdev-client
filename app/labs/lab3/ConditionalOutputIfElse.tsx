@@ -1,4 +1,4 @@
-// the component returns a different tree from each branch
+// The component returns a different tree from each branch
 export default function ConditionalOutputIfElse() {
   const loggedIn = true;
   if (loggedIn) {

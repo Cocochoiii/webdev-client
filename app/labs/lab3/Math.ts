@@ -1,4 +1,4 @@
-// a small library with named exports and one default export
+// A small library with named exports and one default export
 export function add(a: number, b: number): number {
   return a + b;
 }

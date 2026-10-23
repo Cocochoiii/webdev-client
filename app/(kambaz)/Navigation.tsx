@@ -1,5 +1,5 @@
+// The sidebar maps a LINKS array and highlights the screen I am on
 "use client";
-// the sidebar maps a LINKS array and highlights the screen i am on
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
 import { LiaBookSolid } from "react-icons/lia";

@@ -1,4 +1,4 @@
-// props come in as one object and i destructure a and b from it
+// Props come in as one object and I take a and b out of it
 export default function Add({ a, b }: { a: number; b: number }) {
   return (
     <div id="wd-add">

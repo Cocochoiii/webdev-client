@@ -1,5 +1,5 @@
+// The course menu maps a LINKS array and keeps the course id in every link
 "use client";
-// the course menu maps a LINKS array and keeps the course id in every href
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "../../kambaz.css";

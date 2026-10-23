@@ -1,4 +1,4 @@
-// no "use client" here, so this runs on the server and can read the file system
+// No "use client" here, so this runs on the server and can read the file system
 import fs from "node:fs";
 import path from "node:path";
 export default function ServerComponentDemo() {

@@ -1,4 +1,4 @@
-// find returns the first match or undefined
+// Find returns the first match or undefined
 export default function FindFunction() {
   let numberArray1 = [1, 2, 3, 4, 5];
   let stringArray1 = ["string1", "string2", "string3"];

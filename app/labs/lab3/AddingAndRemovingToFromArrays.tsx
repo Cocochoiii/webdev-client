@@ -1,4 +1,4 @@
-// push adds to the end and splice removes from anywhere
+// Push adds to the end and splice removes from anywhere
 export default function AddingAndRemovingToFromArrays() {
   let numberArray1 = [1, 2, 3, 4, 5];
   let stringArray1 = ["string1", "string2"];

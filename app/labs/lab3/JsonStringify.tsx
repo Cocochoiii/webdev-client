@@ -1,4 +1,4 @@
-// JSON.stringify puts the brackets and commas back so i can see the structure
+// JSON.stringify puts the brackets and commas back so I can see the structure
 export default function JsonStringify() {
   const squares = [1, 4, 16, 25, 36];
   const myCourse = { course: "CS5610", credits: 4, section: "09" };

@@ -1,4 +1,4 @@
-// one course card, filled from a course object and linking by its _id
+// One course card, filled from a course object and linking by its _id
 import Link from "next/link";
 import Image from "next/image";
 export default function CourseCard({

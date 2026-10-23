@@ -1,4 +1,4 @@
-// one todo row, with a default todo if the parent leaves it out
+// One todo row, with a default todo if the parent leaves it out
 type Todo = {
   done: boolean;
   title: string;

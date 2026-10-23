@@ -1,4 +1,4 @@
-// a one line arrow returns the expression without the return keyword
+// A one line arrow returns the expression without the return keyword
 export default function ImpliedReturn() {
   const multiply = (a: number, b: number) => a * b;
   const fourTimesFive = multiply(4, 5);

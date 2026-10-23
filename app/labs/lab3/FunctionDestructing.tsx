@@ -1,4 +1,4 @@
-// a function can destructure its one object parameter right in the parameter list
+// A function can destructure its one object parameter in the parameter list
 export default function FunctionDestructing() {
   const add = (a: number, b: number) => a + b;
   const sum = add(1, 2);

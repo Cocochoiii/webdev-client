@@ -1,4 +1,4 @@
-// length counts the items and indexOf finds where one sits
+// Length counts the items and indexOf finds where one sits
 export default function ArrayIndexAndLength() {
   let numberArray1 = [1, 2, 3, 4, 5];
   const length1 = numberArray1.length;

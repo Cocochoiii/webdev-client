@@ -1,4 +1,4 @@
-// booleans come from &&, ||, !, and === comparisons
+// Booleans come from and, or, not, and === comparisons
 export default function BooleanVariables() {
   let numberVariable = 123,
     floatingPointNumber = 234.345;

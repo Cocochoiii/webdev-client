@@ -1,4 +1,4 @@
-// the class name can come from a variable or a ternary
+// The class name can come from a variable or a ternary
 import "./Classes.css";
 export default function Classes() {
   const color = "blue";

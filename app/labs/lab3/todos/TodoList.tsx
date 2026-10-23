@@ -1,4 +1,4 @@
-// map the json array onto TodoItem, keyed by the unique title
+// Map the JSON array onto TodoItem, keyed by the unique title
 import TodoItem from "./TodoItem";
 import todos from "./todos.json";
 export default function TodoList() {

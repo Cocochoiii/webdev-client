@@ -1,4 +1,4 @@
-// the Assignments screen filters assignments.json by the course id in the url
+// The Assignments screen filters assignments.json by the course id in the URL
 import { FaPlus, FaSearch } from "react-icons/fa";
 import AssignmentItem from "./AssignmentItem";
 import * as db from "../../../database";

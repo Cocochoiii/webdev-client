@@ -1,4 +1,4 @@
-// the style attribute takes an object, and spread reuses the shared parts
+// The style attribute takes an object, and spread reuses the shared parts
 export default function Styles() {
   const colorBlack = { color: "black" };
   const padding10px = { padding: "10px" };

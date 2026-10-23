@@ -1,5 +1,5 @@
+// The [a] and [b] folders turn into useParams values
 "use client";
-// the [a] and [b] folders turn into useParams values
 import { useParams } from "next/navigation";
 export default function AddPathParameters() {
   const { a, b } = useParams();

@@ -1,4 +1,4 @@
-// the course layout looks up the course from the url and shows the breadcrumb
+// The course layout looks up the course from the URL and shows the breadcrumb
 import { ReactNode } from "react";
 import { FaAlignJustify } from "react-icons/fa6";
 import CourseNavigation from "./Navigation";

@@ -1,4 +1,4 @@
-// highlight wraps whatever children it gets in yellow and red
+// Highlight wraps whatever children it gets in yellow and red
 import { ReactNode } from "react";
 export default function Highlight({ children }: { children: ReactNode }) {
   return (

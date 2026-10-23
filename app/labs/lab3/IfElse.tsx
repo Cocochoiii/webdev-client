@@ -1,4 +1,4 @@
-// && short circuits and the ternary always picks one branch
+// The && short circuits and the ternary always picks one branch
 export default function IfElse() {
   let true1 = true,
     false1 = false;

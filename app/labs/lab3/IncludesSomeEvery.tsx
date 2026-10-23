@@ -1,4 +1,4 @@
-// includes, some, and every each answer a yes or no question about an array
+// Includes, some, and every each answer a yes or no question about an array
 export default function IncludesSomeEvery() {
   const numbers = [1, 2, 3, 4, 5];
   const includes3 = numbers.includes(3);

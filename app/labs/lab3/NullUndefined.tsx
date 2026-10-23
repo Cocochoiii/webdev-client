@@ -1,4 +1,4 @@
-// null is set on purpose, undefined means nothing was assigned
+// Null is set on purpose, undefined means nothing was assigned
 export default function NullUndefined() {
   const nullValue = null;
   const undefinedValue = undefined;

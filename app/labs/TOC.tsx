@@ -1,5 +1,5 @@
+// The table of contents highlights the lab I am on
 "use client";
-// the table of contents highlights the lab i am on
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 const LINKS = [

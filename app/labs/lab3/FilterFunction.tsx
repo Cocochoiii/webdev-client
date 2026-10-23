@@ -1,4 +1,4 @@
-// filter keeps the items that pass the test
+// Filter keeps the items that pass the test
 export default function FilterFunction() {
   let numberArray1 = [1, 2, 4, 5, 6];
   const numbersGreaterThan2 = numberArray1.filter((a) => a > 2);

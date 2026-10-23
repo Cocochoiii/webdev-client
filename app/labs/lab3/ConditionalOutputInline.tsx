@@ -1,4 +1,4 @@
-// one wrapper, and && decides which headings show up
+// One wrapper, and && decides which headings show up
 export default function ConditionalOutputInline() {
   const loggedIn = false;
   const guest = true;

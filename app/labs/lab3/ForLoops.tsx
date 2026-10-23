@@ -1,4 +1,4 @@
-// a for loop builds a new array one item at a time
+// A for loop builds a new array one item at a time
 export default function ForLoops() {
   let stringArray1 = ["string1", "string3"];
   let stringArray2: string[] = [];

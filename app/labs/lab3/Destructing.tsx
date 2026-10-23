@@ -1,4 +1,4 @@
-// destructuring unpacks object properties by name and array items by position
+// Destructuring unpacks object properties by name and array items by position
 export default function Destructing() {
   const person = { name: "John", age: 25, city: "Boston" };
   const { name, age, city } = person;

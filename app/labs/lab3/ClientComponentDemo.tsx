@@ -1,5 +1,5 @@
+// This client component reads the address bar with usePathname
 "use client";
-// "use client" lets this component read the address bar with usePathname
 import { usePathname } from "next/navigation";
 export default function ClientComponentDemo() {
   const pathname = usePathname();

@@ -1,4 +1,4 @@
-// arrays can hold numbers, strings, variables, and even jsx
+// Arrays can hold numbers, strings, variables, and even JSX
 export default function SimpleArrays() {
   var functionScoped = 2;
   let blockScoped = 5;
