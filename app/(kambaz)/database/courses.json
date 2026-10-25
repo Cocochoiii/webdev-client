@@ -8,7 +8,7 @@
     "department": "D123",
     "credits": 4,
     "description": "This course provides an in-depth study of the fundamentals of rocket propulsion, including thermodynamics of the combustion chamber and nozzle. Students analyze solid, liquid, and hybrid rocket motors and apply propulsion theory to engine performance.",
-    "image": "/images/course1.jpg",
+    "image": "/images/rs101.jpg",
     "term": "Spring 2023"
   },
   {
@@ -20,7 +20,7 @@
     "department": "D123",
     "credits": 3,
     "description": "This course explores the principles of aerodynamics and how airflow interacts with wings, airfoils, and other flying bodies. Students study lift, drag, compressible flow, and the aerodynamic considerations used in aircraft and spacecraft design.",
-    "image": "/images/course2.jpg",
+    "image": "/images/rs102.jpg",
     "term": "Spring 2023"
   },
   {
@@ -32,7 +32,7 @@
     "department": "D123",
     "credits": 4,
     "description": "This course covers the principles of spacecraft design, including structures, propulsion, thermal control, and power systems. Students apply systems engineering methods to mission design, orbital mechanics, and payload integration for current and future space missions.",
-    "image": "/images/course3.jpg",
+    "image": "/images/rs103.jpg",
     "term": "Spring 2023"
   },
   {
@@ -46,5 +46,137 @@
     "description": "A survey of carbon based compounds, reaction mechanisms, and lab techniques for synthesis and analysis.",
     "image": "/images/reactjs.jpg",
     "term": "Spring 2023"
+  },
+  {
+    "_id": "5610",
+    "name": "CS5610 Web Development",
+    "number": "CS5610",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Hands-on full-stack web with HTML/CSS/JS, React/Next.js, Node/Express, and MongoDB. Build modern web applications using industry-standard tools and frameworks.",
+    "image": "/images/course1.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "5520",
+    "name": "CS5520 Mobile Application Development",
+    "number": "CS5520",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Design and build mobile apps with modern UI patterns, data, networking, and device APIs. Create cross-platform applications for iOS and Android.",
+    "image": "/images/course2.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "5004",
+    "name": "CS5004 Object-Oriented Design",
+    "number": "CS5004",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Deep dive into OOP design in Java: principles, patterns, and rigorous testing. Master SOLID principles and design patterns for scalable software.",
+    "image": "/images/course3.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "5200",
+    "name": "CS5200 Database Management Systems",
+    "number": "CS5200",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Relational modeling, SQL, transactions, and performance tuning for real systems. Design and implement efficient database solutions.",
+    "image": "/images/course4.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "5800",
+    "name": "CS5800 Algorithms",
+    "number": "CS5800",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Core algorithms, complexity, and problem solving with proofs and analysis. Master fundamental algorithms and data structures.",
+    "image": "/images/course5.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "6620",
+    "name": "CS6620 Fundamentals of Cloud Computing",
+    "number": "CS6620",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Cloud foundations: virtualization, distributed storage, platforms, and data systems. Build scalable cloud-native applications.",
+    "image": "/images/course6.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "6510",
+    "name": "CS6510 Advanced Software Development",
+    "number": "CS6510",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Team-based product development: planning, architecture, quality, and delivery. Work on large-scale software projects.",
+    "image": "/images/course7.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "5700",
+    "name": "CS5700 Computer Networks",
+    "number": "CS5700",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Internet architecture, transport and routing, applications, and network security using sockets.",
+    "image": "/images/course8.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "6140",
+    "name": "CS6140 Machine Learning",
+    "number": "CS6140",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Supervised and unsupervised machine learning: regression, classification, kernels, and clustering.",
+    "image": "/images/course9.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "5100",
+    "name": "CS5100 Foundations of Artificial Intelligence",
+    "number": "CS5100",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Artificial intelligence: search, adversarial games, constraint satisfaction, MDPs, and logic.",
+    "image": "/images/course10.jpg",
+    "term": "Fall 2026"
+  },
+  {
+    "_id": "6650",
+    "name": "CS6650 Building Scalable Distributed Systems",
+    "number": "CS6650",
+    "startDate": "2026-09-08",
+    "endDate": "2026-12-11",
+    "department": "Khoury College of Computer Sciences",
+    "credits": 4,
+    "description": "Building scalable distributed systems: concurrency, RPC, messaging, and cloud deployment.",
+    "image": "/images/course11.jpg",
+    "term": "Fall 2026"
   }
 ]
