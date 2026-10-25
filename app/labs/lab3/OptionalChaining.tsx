@@ -1,4 +1,4 @@
-// The ?. stops at a missing value and ?? fills in a default
+// Optional chaining skips a missing value and ?? gives a default
 type House = {
   bedrooms: number;
   address?: { street: string; city: string; zip?: string };

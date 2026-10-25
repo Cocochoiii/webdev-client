@@ -739,9 +739,9 @@
   },
   {
     "_id": "A-5700-03",
-    "title": "A3: Socket Programming",
+    "title": "A3: Network Performance",
     "course": "5700",
-    "description": "Hands-on assignment applying socket programming concepts.",
+    "description": "Hands-on assignment applying network performance concepts.",
     "points": 100,
     "due": "2026-10-05",
     "available": "2026-09-22"
@@ -892,9 +892,9 @@
   },
   {
     "_id": "A-6140-10",
-    "title": "A10: Applied ML",
+    "title": "A10: Reinforcement Learning",
     "course": "6140",
-    "description": "Hands-on assignment applying applied ml concepts.",
+    "description": "Hands-on assignment applying reinforcement learning concepts.",
     "points": 150,
     "due": "2026-11-23",
     "available": "2026-11-10"

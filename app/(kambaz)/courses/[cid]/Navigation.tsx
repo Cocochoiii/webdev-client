@@ -1,4 +1,4 @@
-// The course menu maps a LINKS array and keeps the course id in every link
+// The course menu comes from LINKS and keeps the course id
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

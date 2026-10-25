@@ -1,4 +1,4 @@
-// The editor finds the assignment from the URL and fills the form from it
+// The editor fills the form from the assignment in the URL
 import Link from "next/link";
 import * as db from "../../../../database";
 export default async function AssignmentEditor({

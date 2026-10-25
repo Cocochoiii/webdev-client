@@ -1,4 +1,4 @@
-// The account menu highlights the screen I am on, like the course menu
+// The account menu highlights the screen I am on
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

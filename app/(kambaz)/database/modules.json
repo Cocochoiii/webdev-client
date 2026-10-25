@@ -2113,26 +2113,26 @@
   },
   {
     "_id": "M-5700-03",
-    "name": "Socket Programming",
-    "description": "Lessons about socket programming.",
+    "name": "Network Performance",
+    "description": "Lessons about network performance.",
     "course": "5700",
     "lessons": [
       {
         "_id": "L-5700-03-1",
-        "name": "TCP sockets",
-        "description": "Lesson on tcp sockets.",
+        "name": "Queuing theory basics",
+        "description": "Lesson on queuing theory basics.",
         "module": "M-5700-03"
       },
       {
         "_id": "L-5700-03-2",
-        "name": "UDP sockets",
-        "description": "Lesson on udp sockets.",
+        "name": "Little's theorem and M/M/1",
+        "description": "Lesson on little's theorem and m/m/1.",
         "module": "M-5700-03"
       },
       {
         "_id": "L-5700-03-3",
-        "name": "Client-server design",
-        "description": "Lesson on client-server design.",
+        "name": "Performance metrics and simulation",
+        "description": "Lesson on performance metrics and simulation.",
         "module": "M-5700-03"
       }
     ]
@@ -2555,26 +2555,26 @@
   },
   {
     "_id": "M-6140-10",
-    "name": "Applied ML",
-    "description": "Lessons about applied ml.",
+    "name": "Reinforcement Learning",
+    "description": "Lessons about reinforcement learning.",
     "course": "6140",
     "lessons": [
       {
         "_id": "L-6140-10-1",
-        "name": "Feature engineering",
-        "description": "Lesson on feature engineering.",
+        "name": "Markov decision processes",
+        "description": "Lesson on markov decision processes.",
         "module": "M-6140-10"
       },
       {
         "_id": "L-6140-10-2",
-        "name": "Pipelines",
-        "description": "Lesson on pipelines.",
+        "name": "Q-learning",
+        "description": "Lesson on q-learning.",
         "module": "M-6140-10"
       },
       {
         "_id": "L-6140-10-3",
-        "name": "Deployment",
-        "description": "Lesson on deployment.",
+        "name": "Learning theory basics",
+        "description": "Lesson on learning theory basics.",
         "module": "M-6140-10"
       }
     ]

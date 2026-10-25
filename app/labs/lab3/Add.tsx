@@ -1,4 +1,4 @@
-// Props come in as one object and I take a and b out of it
+// I pull a and b out of the props object
 export default function Add({ a, b }: { a: number; b: number }) {
   return (
     <div id="wd-add">

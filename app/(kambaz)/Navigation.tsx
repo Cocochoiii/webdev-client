@@ -1,4 +1,4 @@
-// The sidebar maps a LINKS array and highlights the screen I am on
+// The sidebar comes from LINKS and highlights the screen I am on
 "use client";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";

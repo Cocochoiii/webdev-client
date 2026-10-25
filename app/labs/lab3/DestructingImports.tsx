@@ -1,4 +1,4 @@
-// The same functions can be imported as a default, as a namespace, or by name
+// Three ways to import the same functions
 import Math, { add, subtract, multiply, divide, remainder } from "./Math";
 import * as Matematica from "./Math";
 export default function DestructingImports() {
