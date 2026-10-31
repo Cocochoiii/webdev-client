@@ -1,13 +1,13 @@
-// The People screen keeps only the users enrolled in this course
+// The People screen shows the users enrolled in this course
+"use client";
+import { useParams } from "next/navigation";
 import { FaUserCircle } from "react-icons/fa";
 import * as db from "../../../../database";
-export default async function PeopleTable({
-  params,
-}: {
-  params: Promise<{ cid: string }>;
-}) {
-  const { cid } = await params;
-  const { users, enrollments } = db;
+import { useEnrollmentsStore } from "../../../../store/enrollmentsStore";
+export default function PeopleTable() {
+  const { cid } = useParams();
+  const { users } = db;
+  const enrollments = useEnrollmentsStore((state) => state.enrollments);
   const enrolled = users.filter((usr) =>
     enrollments.some(
       (enrollment) => enrollment.user === usr._id && enrollment.course === cid,

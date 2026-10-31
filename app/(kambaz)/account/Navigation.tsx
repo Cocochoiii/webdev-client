@@ -1,43 +1,35 @@
-// The account menu highlights the screen I am on
+// The account menu shows Profile only when someone is signed in
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAccountContext } from "./AccountContext";
 import "../kambaz.css";
 
 export default function AccountNavigation() {
+  const { currentUser } = useAccountContext();
+  const links = currentUser
+    ? (["profile"] as const)
+    : (["signin", "signup"] as const);
   const pathname = usePathname() ?? "";
   return (
     <div id="wd-account-navigation" className="wd list-group rounded-none text-lg">
-      <Link
-        href="/account/signin"
-        className={
-          pathname === "/account/signin"
-            ? "list-group-item active border-0"
-            : "list-group-item border-0 text-red-600"
-        }
-      >
-        Signin
-      </Link>
-      <Link
-        href="/account/signup"
-        className={
-          pathname === "/account/signup"
-            ? "list-group-item active border-0"
-            : "list-group-item border-0 text-red-600"
-        }
-      >
-        Signup
-      </Link>
-      <Link
-        href="/account/profile"
-        className={
-          pathname === "/account/profile"
-            ? "list-group-item active border-0"
-            : "list-group-item border-0 text-red-600"
-        }
-      >
-        Profile
-      </Link>
+      {links.map((link) => (
+        <Link
+          key={link}
+          href={`/account/${link}`}
+          className={
+            pathname === `/account/${link}`
+              ? "list-group-item active border-0"
+              : "list-group-item border-0 text-red-600"
+          }
+        >
+          {link === "signin"
+            ? "Signin"
+            : link === "signup"
+              ? "Signup"
+              : "Profile"}
+        </Link>
+      ))}
     </div>
   );
 }
