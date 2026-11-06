@@ -45,14 +45,6 @@ export default function Signin() {
           setCredentials({ ...credentials, password: e.target.value })
         }
       />
-      <label htmlFor="wd-ai-signin-note" className="mb-1 block text-sm">
-        Sample note
-      </label>
-      <input
-        id="wd-ai-signin-note"
-        placeholder="sample note"
-        className="mb-2 w-full rounded border border-neutral-300 px-3 py-2"
-      />
       <button
         type="button"
         id="wd-signin-btn"

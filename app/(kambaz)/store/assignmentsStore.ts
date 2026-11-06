@@ -2,7 +2,16 @@
 "use client";
 import { create } from "zustand";
 import assignmentsJson from "../database/assignments.json";
-export type Assignment = (typeof assignmentsJson)[number] & { until?: string };
+export type Assignment = {
+  _id: string;
+  title: string;
+  course: string;
+  description: string;
+  points: number;
+  due: string;
+  available: string;
+  until?: string;
+};
 export const emptyAssignment: Assignment = {
   _id: "new",
   title: "New Assignment",

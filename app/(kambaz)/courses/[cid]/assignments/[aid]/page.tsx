@@ -187,20 +187,6 @@ export default function AssignmentEditor() {
           </div>
         </div>
       </div>
-      <div className="mb-4">
-        <label
-          htmlFor="wd-ai-editor-notes"
-          className="mb-1 block text-sm font-medium"
-        >
-          Sample notes
-        </label>
-        <textarea
-          id="wd-ai-editor-notes"
-          rows={3}
-          className="w-full rounded border border-neutral-300 px-3 py-2"
-          defaultValue="This sample field was added the same way as the fields above."
-        />
-      </div>
       <hr className="my-4" />
       <div className="flex justify-end gap-2">
         <Link

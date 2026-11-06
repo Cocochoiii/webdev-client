@@ -53,11 +53,6 @@ export default function Profile() {
         onChange={(e) => setProfile({ ...profile, lastName: e.target.value })}
       />
       <input
-        type="date"
-        id="wd-dob"
-        className="mb-2 w-full rounded border border-neutral-300 px-3 py-2"
-      />
-      <input
         type="email"
         id="wd-email"
         placeholder="email"

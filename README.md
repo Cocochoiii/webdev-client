@@ -38,7 +38,7 @@ All routes use lower case, the same way the book writes them.
 | `/labs/lab4` | Chapter 4 events, state, Context, Zustand, and Redux |
 | `/labs/lab4/profile-form` | the profile form three ways |
 | `/labs/lab4/hooks` | the hooks I wrote |
-| `/labs/lab4/url-encoding/query-params` | adds a, b, and c from the query string |
+| `/labs/lab4/url-encoding/query-params` | adds a and b (and c) from the query string |
 | `/labs/lab4/url-encoding/path-params/[a]/[b]` and `/[a]/[b]/[c]` | adds the numbers in the path |
 | `/account/signin` `/account/signup` `/account/profile` | account screens |
 | `/dashboard` | course cards with add, edit, delete, and enroll |
