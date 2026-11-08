@@ -1,4 +1,4 @@
-// a and b stay local, and the sum lives in the store
+// The a and b inputs stay local and the sum lives in the store
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "./addReducer";
