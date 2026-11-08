@@ -16,11 +16,11 @@ export default function WorkingWithRemoteArrays() {
     <div id="wd-working-with-arrays">
       <h3>Working with Arrays</h3>
       <h4>Retrieving Arrays</h4>
-      <a id="wd-retrieve-todos" className={link} href={API}>
+      <a id="wd-retrieve-todos" className={link} href={API} target="_blank" rel="noreferrer">
         Get Todos
       </a>
       <h4>Retrieving an Item from an Array by ID</h4>
-      <a id="wd-retrieve-todo-by-id" className={link} href={`${API}/${todo.id}`}>
+      <a id="wd-retrieve-todo-by-id" className={link} href={`${API}/${todo.id}`} target="_blank" rel="noreferrer">
         Get Todo by ID
       </a>
       <input
@@ -30,19 +30,19 @@ export default function WorkingWithRemoteArrays() {
         onChange={(e) => setTodo({ ...todo, id: e.target.value })}
       />
       <h4>Filtering Array Items</h4>
-      <a id="wd-retrieve-completed-todos" className={link} href={`${API}?completed=true`}>
+      <a id="wd-retrieve-completed-todos" className={link} href={`${API}?completed=true`} target="_blank" rel="noreferrer">
         Get Completed Todos
       </a>
       <h4>Creating new Items in an Array</h4>
-      <a id="wd-create-todo" className={link} href={`${API}/create`}>
+      <a id="wd-create-todo" className={link} href={`${API}/create`} target="_blank" rel="noreferrer">
         Create Todo
       </a>
       <h4>Removing from an Array</h4>
-      <a id="wd-remove-todo" className={link} href={`${API}/${todo.id}/delete`}>
+      <a id="wd-remove-todo" className={link} href={`${API}/${todo.id}/delete`} target="_blank" rel="noreferrer">
         Remove Todo with ID = {todo.id}
       </a>
       <h4>Updating an Item in an Array</h4>
-      <a id="wd-update-todo-title" className={link} href={`${API}/${todo.id}/title/${todo.title}`}>
+      <a id="wd-update-todo-title" className={link} href={`${API}/${todo.id}/title/${encodeURIComponent(todo.title)}`} target="_blank" rel="noreferrer">
         Update Todo
       </a>
       <input
@@ -55,6 +55,8 @@ export default function WorkingWithRemoteArrays() {
         id="wd-update-todo-completed"
         className={link}
         href={`${API}/${todo.id}/completed/${todo.completed}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Complete Todo ID = {todo.id}
       </a>
@@ -70,7 +72,9 @@ export default function WorkingWithRemoteArrays() {
       <a
         id="wd-update-todo-description"
         className={link}
-        href={`${API}/${todo.id}/description/${todo.description}`}
+        href={`${API}/${todo.id}/description/${encodeURIComponent(todo.description)}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Describe Todo ID = {todo.id}
       </a>

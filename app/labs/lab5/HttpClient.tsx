@@ -5,13 +5,26 @@ import * as client from "./client";
 export default function HttpClient() {
   const [welcomeOnClick, setWelcomeOnClick] = useState("");
   const [welcomeOnLoad, setWelcomeOnLoad] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchWelcomeOnClick = async () => {
-    const message = await client.fetchWelcomeMessage();
-    setWelcomeOnClick(message);
+    try {
+      const message = await client.fetchWelcomeMessage();
+      setWelcomeOnClick(message);
+      setErrorMessage("");
+    } catch {
+      setErrorMessage("Unable to reach the server. Is it running on port 4000?");
+    }
   };
   const fetchWelcomeOnLoad = async () => {
-    const welcome = await client.fetchWelcomeMessage();
-    setWelcomeOnLoad(welcome);
+    try {
+      const welcome = await client.fetchWelcomeMessage();
+      setWelcomeOnLoad(welcome);
+      setErrorMessage("");
+    } catch {
+      setErrorMessage("Unable to reach the server. Is it running on port 4000?");
+    }
+    setLoading(false);
   };
   useEffect(() => {
     fetchWelcomeOnLoad();
@@ -19,6 +32,11 @@ export default function HttpClient() {
   return (
     <div id="wd-http-client">
       <h3>HTTP Client</h3>
+      {errorMessage && (
+        <p id="wd-http-client-error" className="rounded bg-red-100 px-3 py-2 text-red-800">
+          {errorMessage}
+        </p>
+      )}
       <h4>Requesting on Click</h4>
       <button
         type="button"
@@ -34,6 +52,7 @@ export default function HttpClient() {
       <h4>Requesting on Load</h4>
       <p>
         Response from server: <b id="wd-welcome-on-load">{welcomeOnLoad}</b>
+        {loading && <span className="text-neutral-500">Loading...</span>}
       </p>
     </div>
   );

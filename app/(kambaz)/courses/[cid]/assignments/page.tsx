@@ -12,16 +12,29 @@ export default function Assignments() {
   const router = useRouter();
   const [assignments, setAssignments] = useState<Assignment[]>([]);
   const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchAssignments = async () => {
-    const assignments = await client.findAssignmentsForCourse(courseId);
-    setAssignments(assignments);
+    setLoading(true);
+    try {
+      const assignments = await client.findAssignmentsForCourse(courseId);
+      setAssignments(assignments);
+      setErrorMessage("");
+    } catch {
+      setErrorMessage("Unable to load the assignments. Is the server running?");
+    }
+    setLoading(false);
   };
   useEffect(() => {
     fetchAssignments();
   }, [courseId]);
   const deleteAssignment = async (assignmentId: string) => {
-    await client.deleteAssignment(assignmentId);
-    setAssignments(assignments.filter((a) => a._id !== assignmentId));
+    try {
+      await client.deleteAssignment(assignmentId);
+      setAssignments(assignments.filter((a) => a._id !== assignmentId));
+    } catch {
+      setErrorMessage("The server did not delete that assignment. Try again.");
+    }
   };
   return (
     <div id="wd-assignments">
@@ -64,6 +77,16 @@ export default function Assignments() {
           <FaPlus />
         </button>
       </h3>
+      {errorMessage && (
+        <p id="wd-assignments-error" className="mb-3 rounded bg-red-100 px-3 py-2 text-red-800">
+          {errorMessage}
+        </p>
+      )}
+      {loading && (
+        <p id="wd-assignments-loading" className="mb-3 text-neutral-500">
+          Loading assignments from the server...
+        </p>
+      )}
       <ul id="wd-assignment-list" className="m-0 list-none p-0">
         {assignments.map((assignment) => (
           <AssignmentItem

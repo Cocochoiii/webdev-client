@@ -8,7 +8,10 @@ export default function Environment() {
         <code>NEXT_PUBLIC_HTTP_SERVER</code> = <code>{HTTP_SERVER}</code>
       </p>
       <a id="wd-welcome-link" className="text-blue-700 underline"
-        href={`${HTTP_SERVER}/lab5/welcome`}>
+        href={`${HTTP_SERVER}/lab5/welcome`}
+        target="_blank"
+        rel="noreferrer"
+      >
         Welcome
       </a>
     </div>

@@ -26,6 +26,8 @@ export default function PathParameters() {
         id="wd-path-parameter-add"
         className="mb-2 block w-full max-w-sm rounded bg-blue-600 px-3 py-1.5 text-center text-sm text-white no-underline"
         href={`${HTTP_SERVER}/lab5/add/${a}/${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Add {a} + {b}
       </a>
@@ -33,6 +35,8 @@ export default function PathParameters() {
         id="wd-path-parameter-subtract"
         className="mb-2 block w-full max-w-sm rounded bg-red-600 px-3 py-1.5 text-center text-sm text-white no-underline"
         href={`${HTTP_SERVER}/lab5/subtract/${a}/${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Subtract {a} - {b}
       </a>
@@ -40,6 +44,8 @@ export default function PathParameters() {
         id="wd-path-parameter-multiply"
         className="mb-2 block w-full max-w-sm rounded bg-green-600 px-3 py-1.5 text-center text-sm text-white no-underline"
         href={`${HTTP_SERVER}/lab5/multiply/${a}/${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Multiply {a} × {b}
       </a>
@@ -47,6 +53,8 @@ export default function PathParameters() {
         id="wd-path-parameter-divide"
         className="mb-2 block w-full max-w-sm rounded bg-yellow-400 px-3 py-1.5 text-center text-sm no-underline"
         href={`${HTTP_SERVER}/lab5/divide/${a}/${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Divide {a} ÷ {b}
       </a>

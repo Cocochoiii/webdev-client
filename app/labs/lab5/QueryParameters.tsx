@@ -26,6 +26,8 @@ export default function QueryParameters() {
         id="wd-query-parameter-add"
         className="mb-2 block w-full max-w-sm rounded bg-blue-600 px-3 py-1.5 text-center text-sm text-white no-underline"
         href={`${HTTP_SERVER}/lab5/calculator?operation=add&a=${a}&b=${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Add {a} + {b}
       </a>
@@ -33,6 +35,8 @@ export default function QueryParameters() {
         id="wd-query-parameter-subtract"
         className="mb-2 block w-full max-w-sm rounded bg-red-600 px-3 py-1.5 text-center text-sm text-white no-underline"
         href={`${HTTP_SERVER}/lab5/calculator?operation=subtract&a=${a}&b=${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Subtract {a} - {b}
       </a>
@@ -40,6 +44,8 @@ export default function QueryParameters() {
         id="wd-query-parameter-multiply"
         className="mb-2 block w-full max-w-sm rounded bg-green-600 px-3 py-1.5 text-center text-sm text-white no-underline"
         href={`${HTTP_SERVER}/lab5/calculator?operation=multiply&a=${a}&b=${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Multiply {a} × {b}
       </a>
@@ -47,6 +53,8 @@ export default function QueryParameters() {
         id="wd-query-parameter-divide"
         className="mb-2 block w-full max-w-sm rounded bg-yellow-400 px-3 py-1.5 text-center text-sm no-underline"
         href={`${HTTP_SERVER}/lab5/calculator?operation=divide&a=${a}&b=${b}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Divide {a} ÷ {b}
       </a>

@@ -24,6 +24,8 @@ export default function AssignmentEditor() {
     ...emptyAssignment,
     course: courseId,
   });
+  const [saving, setSaving] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchAssignment = async () => {
     if (assignmentId === "new") return;
     const assignments: Assignment[] = await client.findAssignmentsForCourse(courseId);
@@ -34,15 +36,26 @@ export default function AssignmentEditor() {
     fetchAssignment();
   }, [assignmentId]);
   const save = async () => {
-    if (assignmentId === "new") {
-      await client.createAssignmentForCourse(courseId, { ...assignment, course: courseId });
-    } else {
-      await client.updateAssignment(assignment);
+    setSaving(true);
+    try {
+      if (assignmentId === "new") {
+        await client.createAssignmentForCourse(courseId, { ...assignment, course: courseId });
+      } else {
+        await client.updateAssignment(assignment);
+      }
+      router.push(`/courses/${courseId}/assignments`);
+    } catch {
+      setErrorMessage("The server did not save the assignment. Try again.");
+      setSaving(false);
     }
-    router.push(`/courses/${courseId}/assignments`);
   };
   return (
     <div id="wd-assignments-editor" className="max-w-2xl">
+      {errorMessage && (
+        <p id="wd-editor-error" className="mb-3 rounded bg-red-100 px-3 py-2 text-red-800">
+          {errorMessage}
+        </p>
+      )}
       <label htmlFor="wd-name" className="mb-1 block text-sm font-medium">
         Assignment Name
       </label>
@@ -213,9 +226,10 @@ export default function AssignmentEditor() {
           type="button"
           id="wd-save"
           onClick={save}
-          className="rounded bg-red-600 px-4 py-2 text-sm font-medium text-white"
+          disabled={saving}
+          className="rounded bg-red-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
         >
-          Save
+          {saving ? "Saving..." : "Save"}
         </button>
       </div>
     </div>

@@ -23,7 +23,11 @@ export default function Dashboard() {
   const [myCourses, setMyCourses] = useState<Course[]>([]);
   const [course, setCourse] = useState<Course>(emptyCourse);
   const [showAllCourses, setShowAllCourses] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchCourses = async () => {
+    setLoading(true);
     try {
       const allCourses = await client.fetchAllCourses();
       if (currentUser) {
@@ -34,32 +38,65 @@ export default function Dashboard() {
         setMyCourses([]);
         setCourses(allCourses);
       }
+      setErrorMessage("");
     } catch {
       setCourses([]);
+      setErrorMessage("Unable to load the courses. Is the server running?");
     }
+    setLoading(false);
   };
   useEffect(() => {
     fetchCourses();
   }, [currentUser, showAllCourses]);
   const addCourse = async () => {
-    await client.createCourse(course);
-    await fetchCourses();
+    setSaving(true);
+    try {
+      await client.createCourse(course);
+      await fetchCourses();
+    } catch {
+      setErrorMessage("The server did not save that change. Try again.");
+    }
+    setSaving(false);
   };
   const updateCourse = async () => {
-    await client.updateCourse(course);
-    await fetchCourses();
+    setSaving(true);
+    try {
+      await client.updateCourse(course);
+      await fetchCourses();
+    } catch {
+      setErrorMessage("The server did not save that change. Try again.");
+    }
+    setSaving(false);
   };
   const deleteCourse = async (courseId: string) => {
-    await client.deleteCourse(courseId);
-    await fetchCourses();
+    setSaving(true);
+    try {
+      await client.deleteCourse(courseId);
+      await fetchCourses();
+    } catch {
+      setErrorMessage("The server did not save that change. Try again.");
+    }
+    setSaving(false);
   };
   const enroll = async (courseId: string) => {
-    await client.enrollIntoCourse(courseId);
-    await fetchCourses();
+    setSaving(true);
+    try {
+      await client.enrollIntoCourse(courseId);
+      await fetchCourses();
+    } catch {
+      setErrorMessage("The server did not save that change. Try again.");
+    }
+    setSaving(false);
   };
   const unenroll = async (courseId: string) => {
-    await client.unenrollFromCourse(courseId);
-    await fetchCourses();
+    setSaving(true);
+    try {
+      await client.unenrollFromCourse(courseId);
+      await fetchCourses();
+    } catch {
+      setErrorMessage("The server did not save that change. Try again.");
+    }
+    setSaving(false);
   };
   const isEnrolled = (courseId: string) =>
     myCourses.some((c) => c._id === courseId);
@@ -79,24 +116,32 @@ export default function Dashboard() {
         )}
       </div>
       <hr />
+      {errorMessage && (
+        <p id="wd-dashboard-error" className="my-2 rounded bg-red-100 px-3 py-2 text-red-800">
+          {errorMessage}
+        </p>
+      )}
       <h5 className="flex flex-wrap items-center gap-2">
         New Course
         <button
           type="button"
-          className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
+          className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
           id="wd-add-new-course-click"
           onClick={addCourse}
+          disabled={saving}
         >
           Add
         </button>
         <button
           type="button"
-          className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium"
+          className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium disabled:opacity-50"
           id="wd-update-course-click"
           onClick={updateCourse}
+          disabled={saving}
         >
           Update
         </button>
+        {saving && <span className="text-sm text-neutral-500">Saving...</span>}
       </h5>
       <input
         className="mb-2 mt-2 block w-full max-w-xl rounded border border-neutral-300 px-3 py-1.5"
@@ -129,6 +174,11 @@ export default function Dashboard() {
       <hr />
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
       <hr />
+      {loading && (
+        <p id="wd-dashboard-loading" className="my-2 text-neutral-500">
+          Loading courses from the server...
+        </p>
+      )}
       <div
         id="wd-dashboard-courses"
         className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
@@ -143,6 +193,7 @@ export default function Dashboard() {
             enrolled={isEnrolled(c._id)}
             onEnroll={() => enroll(c._id)}
             onUnenroll={() => unenroll(c._id)}
+            saving={saving}
           />
         ))}
       </div>

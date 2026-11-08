@@ -25,18 +25,20 @@ export default function WorkingWithRemoteObjects() {
     <div id="wd-working-with-remote-objects">
       <h3>Working With Objects</h3>
       <h4>Retrieving Objects</h4>
-      <a id="wd-retrieve-assignments" className={link} href={ASSIGNMENT_API_URL}>
+      <a id="wd-retrieve-assignments" className={link} href={ASSIGNMENT_API_URL} target="_blank" rel="noreferrer">
         Get Assignment
       </a>
       <h4>Retrieving Properties</h4>
-      <a id="wd-retrieve-assignment-title" className={link} href={`${ASSIGNMENT_API_URL}/title`}>
+      <a id="wd-retrieve-assignment-title" className={link} href={`${ASSIGNMENT_API_URL}/title`} target="_blank" rel="noreferrer">
         Get Title
       </a>
       <h4>Modifying Properties</h4>
       <a
         id="wd-update-assignment-title"
         className={link}
-        href={`${ASSIGNMENT_API_URL}/title/${assignment.title}`}
+        href={`${ASSIGNMENT_API_URL}/title/${encodeURIComponent(assignment.title)}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Update Title
       </a>
@@ -50,6 +52,8 @@ export default function WorkingWithRemoteObjects() {
         id="wd-update-assignment-score"
         className={link}
         href={`${ASSIGNMENT_API_URL}/score/${assignment.score}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Update Score
       </a>
@@ -66,6 +70,8 @@ export default function WorkingWithRemoteObjects() {
         id="wd-update-assignment-completed"
         className={link}
         href={`${ASSIGNMENT_API_URL}/completed/${assignment.completed}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Update Completed
       </a>
@@ -79,17 +85,19 @@ export default function WorkingWithRemoteObjects() {
         Completed
       </label>
       <h4>Module (On Your Own)</h4>
-      <a id="wd-retrieve-module" className={link} href={MODULE_API_URL}>
+      <a id="wd-retrieve-module" className={link} href={MODULE_API_URL} target="_blank" rel="noreferrer">
         Get Module
       </a>
-      <a id="wd-retrieve-module-name" className={link} href={`${MODULE_API_URL}/name`}>
+      <a id="wd-retrieve-module-name" className={link} href={`${MODULE_API_URL}/name`} target="_blank" rel="noreferrer">
         Get Module Name
       </a>
       <br />
       <a
         id="wd-update-module-name"
         className={`${link} mt-2`}
-        href={`${MODULE_API_URL}/name/${module.name}`}
+        href={`${MODULE_API_URL}/name/${encodeURIComponent(module.name)}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Update Module Name
       </a>
@@ -102,7 +110,9 @@ export default function WorkingWithRemoteObjects() {
       <a
         id="wd-update-module-description"
         className={link}
-        href={`${MODULE_API_URL}/description/${module.description}`}
+        href={`${MODULE_API_URL}/description/${encodeURIComponent(module.description)}`}
+        target="_blank"
+        rel="noreferrer"
       >
         Update Module Description
       </a>

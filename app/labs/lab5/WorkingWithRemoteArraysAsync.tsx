@@ -14,21 +14,40 @@ type Todo = {
 export default function WorkingWithRemoteArraysAsync() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
   const fetchTodos = async () => {
-    setTodos(await client.fetchTodos());
+    try {
+      setTodos(await client.fetchTodos());
+      setErrorMessage(null);
+    } catch {
+      setErrorMessage("Unable to load the todos from the server.");
+    }
+    setLoading(false);
   };
   const removeTodo = async (todo: Todo) => {
-    setTodos(await client.removeTodo(todo));
+    try {
+      setTodos(await client.removeTodo(todo));
+    } catch {
+      setErrorMessage(`Unable to remove Todo with ID ${todo.id}`);
+    }
   };
   const createNewTodo = async () => {
-    setTodos(await client.createNewTodo());
+    try {
+      setTodos(await client.createNewTodo());
+    } catch {
+      setErrorMessage("The server did not create the todo. Try again.");
+    }
   };
   const postNewTodo = async () => {
-    const newTodo = await client.postNewTodo({
-      title: "New Posted Todo",
-      completed: false,
-    });
-    setTodos([...todos, newTodo]);
+    try {
+      const newTodo = await client.postNewTodo({
+        title: "New Posted Todo",
+        completed: false,
+      });
+      setTodos([...todos, newTodo]);
+    } catch {
+      setErrorMessage("The server did not create the todo. Try again.");
+    }
   };
   const deleteTodo = async (todo: Todo) => {
     try {
@@ -75,6 +94,7 @@ export default function WorkingWithRemoteArraysAsync() {
           {errorMessage}
         </p>
       )}
+      {loading && <p className="text-neutral-500">Loading the todos from the server...</p>}
       <ul id="wd-todo-list" className="m-0 max-w-lg list-none p-0">
         {todos.map((todo) => (
           <li

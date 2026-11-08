@@ -10,6 +10,7 @@ export default function CourseCard({
   enrolled,
   onEnroll,
   onUnenroll,
+  saving,
 }: {
   course: Course;
   onEdit: () => void;
@@ -18,6 +19,7 @@ export default function CourseCard({
   enrolled: boolean;
   onEnroll: () => void;
   onUnenroll: () => void;
+  saving: boolean;
 }) {
   return (
     <div className="wd-dashboard-course w-[300px] max-w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm">
@@ -59,7 +61,8 @@ export default function CourseCard({
           <button
             type="button"
             id="wd-delete-course-click"
-            className="ms-2 inline-flex items-center justify-center rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+            className="ms-2 inline-flex items-center justify-center rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
+            disabled={saving}
             onClick={(event) => {
               event.preventDefault();
               onDelete();
@@ -71,7 +74,8 @@ export default function CourseCard({
             <button
               type="button"
               id="wd-unenroll-course-click"
-              className="mt-2 block rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+              className="mt-2 block rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
+              disabled={saving}
               onClick={(event) => {
                 event.preventDefault();
                 onUnenroll();
@@ -84,7 +88,8 @@ export default function CourseCard({
             <button
               type="button"
               id="wd-enroll-course-click"
-              className="mt-2 block rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
+              className="mt-2 block rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
+              disabled={saving}
               onClick={(event) => {
                 event.preventDefault();
                 onEnroll();

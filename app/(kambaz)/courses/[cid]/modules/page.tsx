@@ -11,21 +11,38 @@ export default function Modules() {
   const courseId = String(cid);
   const [modules, setModules] = useState<CourseModule[]>([]);
   const [moduleName, setModuleName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchModules = async () => {
-    const modules = await client.findModulesForCourse(courseId);
-    setModules(modules);
+    setLoading(true);
+    try {
+      const modules = await client.findModulesForCourse(courseId);
+      setModules(modules);
+      setErrorMessage("");
+    } catch {
+      setErrorMessage("Unable to load the modules. Is the server running?");
+    }
+    setLoading(false);
   };
   useEffect(() => {
     fetchModules();
   }, [courseId]);
   const addModule = async () => {
-    const newModule = await client.createModuleForCourse(courseId, { name: moduleName });
-    setModules([...modules, newModule]);
-    setModuleName("");
+    try {
+      const newModule = await client.createModuleForCourse(courseId, { name: moduleName });
+      setModules([...modules, newModule]);
+      setModuleName("");
+    } catch {
+      setErrorMessage("The server did not save the new module. Try again.");
+    }
   };
   const deleteModule = async (moduleId: string) => {
-    await client.deleteModule(moduleId);
-    setModules(modules.filter((m) => m._id !== moduleId));
+    try {
+      await client.deleteModule(moduleId);
+      setModules(modules.filter((m) => m._id !== moduleId));
+    } catch {
+      setErrorMessage("The server did not delete that module. Try again.");
+    }
   };
   const editModule = (moduleId: string) => {
     setModules(modules.map((m) => (m._id === moduleId ? { ...m, editing: true } : m)));
@@ -34,8 +51,12 @@ export default function Modules() {
     setModules(modules.map((m) => (m._id === module._id ? module : m)));
   };
   const saveModule = async (module: CourseModule) => {
-    await client.updateModule(module);
-    setModules(modules.map((m) => (m._id === module._id ? module : m)));
+    try {
+      await client.updateModule(module);
+      setModules(modules.map((m) => (m._id === module._id ? module : m)));
+    } catch {
+      setErrorMessage("The server did not save that module. Try again.");
+    }
   };
   return (
     <div>
@@ -44,6 +65,16 @@ export default function Modules() {
         setModuleName={setModuleName}
         addModule={addModule}
       />
+      {errorMessage && (
+        <p id="wd-modules-error" className="mb-3 rounded bg-red-100 px-3 py-2 text-red-800">
+          {errorMessage}
+        </p>
+      )}
+      {loading && (
+        <p id="wd-modules-loading" className="mb-3 text-neutral-500">
+          Loading modules from the server...
+        </p>
+      )}
       <ul id="wd-modules" className="m-0 list-none p-0">
         {modules.map((module) => (
           <Module

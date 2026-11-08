@@ -7,6 +7,8 @@ import { useAccountContext, type User } from "../AccountContext";
 
 export default function Profile() {
   const [profile, setProfile] = useState<User | null>(null);
+  const [saved, setSaved] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const { setCurrentUser } = useAccountContext();
   const router = useRouter();
   const fetchProfile = async () => {
@@ -20,9 +22,16 @@ export default function Profile() {
   };
   const updateProfile = async () => {
     if (!profile) return;
-    const updatedProfile = await client.updateUser(profile);
-    setCurrentUser(updatedProfile);
-    setProfile(updatedProfile);
+    try {
+      const updatedProfile = await client.updateUser(profile);
+      setCurrentUser(updatedProfile);
+      setProfile(updatedProfile);
+      setSaved(true);
+      setErrorMessage("");
+    } catch {
+      setSaved(false);
+      setErrorMessage("The server did not save the profile. Try again.");
+    }
   };
   const signout = async () => {
     await client.signout();
@@ -36,12 +45,25 @@ export default function Profile() {
   return (
     <div id="wd-profile-screen" className="max-w-sm">
       <h1 className="mb-3 text-2xl font-semibold">Profile</h1>
+      {saved && (
+        <p id="wd-profile-saved" role="status" className="mb-2 rounded bg-green-100 px-3 py-2 text-green-800">
+          Profile saved.
+        </p>
+      )}
+      {errorMessage && (
+        <p id="wd-profile-error" className="mb-2 rounded bg-red-100 px-3 py-2 text-red-800">
+          {errorMessage}
+        </p>
+      )}
       <input
         id="wd-username"
         placeholder="username"
         className="wd-username mb-2 w-full rounded border border-neutral-300 px-3 py-2"
         value={profile.username}
-        onChange={(e) => setProfile({ ...profile, username: e.target.value })}
+        onChange={(e) => {
+          setSaved(false);
+          setProfile({ ...profile, username: e.target.value });
+        }}
       />
       <input
         id="wd-password"
@@ -49,21 +71,30 @@ export default function Profile() {
         type="password"
         className="wd-password mb-2 w-full rounded border border-neutral-300 px-3 py-2"
         value={profile.password}
-        onChange={(e) => setProfile({ ...profile, password: e.target.value })}
+        onChange={(e) => {
+          setSaved(false);
+          setProfile({ ...profile, password: e.target.value });
+        }}
       />
       <input
         placeholder="First Name"
         id="wd-firstname"
         className="mb-2 w-full rounded border border-neutral-300 px-3 py-2"
         value={profile.firstName}
-        onChange={(e) => setProfile({ ...profile, firstName: e.target.value })}
+        onChange={(e) => {
+          setSaved(false);
+          setProfile({ ...profile, firstName: e.target.value });
+        }}
       />
       <input
         placeholder="Last Name"
         id="wd-lastname"
         className="mb-2 w-full rounded border border-neutral-300 px-3 py-2"
         value={profile.lastName}
-        onChange={(e) => setProfile({ ...profile, lastName: e.target.value })}
+        onChange={(e) => {
+          setSaved(false);
+          setProfile({ ...profile, lastName: e.target.value });
+        }}
       />
       <input
         type="email"
@@ -71,13 +102,19 @@ export default function Profile() {
         placeholder="email"
         className="mb-2 w-full rounded border border-neutral-300 px-3 py-2"
         value={profile.email}
-        onChange={(e) => setProfile({ ...profile, email: e.target.value })}
+        onChange={(e) => {
+          setSaved(false);
+          setProfile({ ...profile, email: e.target.value });
+        }}
       />
       <select
         id="wd-role"
         className="mb-2 w-full rounded border border-neutral-300 bg-white px-3 py-2"
         value={profile.role}
-        onChange={(e) => setProfile({ ...profile, role: e.target.value })}
+        onChange={(e) => {
+          setSaved(false);
+          setProfile({ ...profile, role: e.target.value });
+        }}
       >
         <option value="USER">User</option>
         <option value="ADMIN">Admin</option>

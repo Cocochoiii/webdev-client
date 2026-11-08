@@ -1,6 +1,6 @@
 // Sign up posts a new user to the server and signs them in
 "use client";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as client from "../client";
@@ -11,7 +11,8 @@ export default function Signup() {
   const [errorMessage, setErrorMessage] = useState("");
   const { setCurrentUser } = useAccountContext();
   const router = useRouter();
-  const signup = async () => {
+  const signup = async (e: FormEvent) => {
+    e.preventDefault();
     if (!user.username || !user.password) return;
     try {
       const current = await client.signup(user);
@@ -22,7 +23,7 @@ export default function Signup() {
     }
   };
   return (
-    <div id="wd-signup-screen" className="max-w-sm">
+    <form id="wd-signup-screen" className="max-w-sm" onSubmit={signup}>
       <h1 className="mb-3 text-2xl font-semibold">Sign up</h1>
       {errorMessage && (
         <p id="wd-signup-error" className="mb-2 rounded bg-red-100 px-3 py-2 text-red-800">
@@ -50,9 +51,8 @@ export default function Signup() {
         className="wd-password-verify mb-2 w-full rounded border border-neutral-300 px-3 py-2"
       />
       <button
-        type="button"
+        type="submit"
         id="wd-signup-btn"
-        onClick={signup}
         className="mb-2 block w-full rounded bg-blue-600 px-3 py-2 text-center text-white"
       >
         Sign up
@@ -60,6 +60,6 @@ export default function Signup() {
       <Link id="wd-signin-link" href="/account/signin" className="text-blue-600">
         Sign in
       </Link>
-    </div>
+    </form>
   );
 }

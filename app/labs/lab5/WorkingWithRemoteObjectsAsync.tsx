@@ -12,11 +12,24 @@ type Assignment = {
 };
 export default function WorkingWithRemoteObjectsAsync() {
   const [assignment, setAssignment] = useState<Assignment>({});
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchAssignment = async () => {
-    setAssignment(await client.fetchAssignment());
+    try {
+      setAssignment(await client.fetchAssignment());
+      setErrorMessage("");
+    } catch {
+      setErrorMessage("Unable to load the assignment from the server.");
+    }
+    setLoading(false);
   };
   const updateTitle = async () => {
-    setAssignment(await client.updateTitle(assignment.title ?? ""));
+    try {
+      setAssignment(await client.updateTitle(encodeURIComponent(assignment.title ?? "")));
+      setErrorMessage("");
+    } catch {
+      setErrorMessage("The server did not save the title. Try again.");
+    }
   };
   useEffect(() => {
     fetchAssignment();
@@ -24,6 +37,12 @@ export default function WorkingWithRemoteObjectsAsync() {
   return (
     <div id="wd-asynchronous-objects">
       <h3>Working with Objects Asynchronously</h3>
+      {errorMessage && (
+        <p id="wd-async-object-error" className="rounded bg-red-100 px-3 py-2 text-red-800">
+          {errorMessage}
+        </p>
+      )}
+      {loading && <p className="text-neutral-500">Loading the assignment from the server...</p>}
       <h4>Assignment</h4>
       <input
         className="mb-2 block w-full max-w-sm rounded border border-neutral-300 px-3 py-1.5"
