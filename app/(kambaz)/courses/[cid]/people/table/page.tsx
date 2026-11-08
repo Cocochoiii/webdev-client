@@ -1,28 +1,27 @@
-// The People screen shows the users enrolled in this course
+// The People screen loads the users enrolled in this course from the server
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FaPlus, FaUserCircle } from "react-icons/fa";
-import * as db from "../../../../database";
-import { useEnrollmentsStore } from "../../../../store/enrollmentsStore";
-import { emptyUser } from "../../../../account/AccountContext";
+import * as client from "../../../../account/client";
+import * as coursesClient from "../../../client";
+import { emptyUser, type User } from "../../../../account/AccountContext";
 export default function PeopleTable() {
   const { cid } = useParams();
   const courseId = String(cid);
-  const [users, setUsers] = useState(db.users);
+  const [users, setUsers] = useState<User[]>([]);
   const [user, setUser] = useState(emptyUser);
-  const enrollments = useEnrollmentsStore((state) => state.enrollments);
-  const enroll = useEnrollmentsStore((state) => state.enroll);
-  const enrolled = users.filter((usr) =>
-    enrollments.some(
-      (enrollment) =>
-        enrollment.user === usr._id && enrollment.course === courseId,
-    ),
-  );
-  const addUser = () => {
-    const newUser = { ...user, _id: crypto.randomUUID() };
+  const fetchUsers = async () => {
+    const users = await client.findUsersForCourse(courseId);
+    setUsers(users);
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, [courseId]);
+  const addUser = async () => {
+    const newUser = await client.createUser(user);
+    await coursesClient.enrollUserInCourse(newUser._id, courseId);
     setUsers([...users, newUser]);
-    enroll(newUser._id, courseId);
     setUser(emptyUser);
   };
   return (
@@ -73,7 +72,7 @@ export default function PeopleTable() {
           </tr>
         </thead>
         <tbody>
-          {enrolled.map((usr) => (
+          {users.map((usr) => (
             <tr key={usr._id} className="odd:bg-neutral-50">
               <td className="wd-full-name p-2 text-nowrap">
                 <FaUserCircle className="me-2 inline align-middle text-3xl text-neutral-500" />

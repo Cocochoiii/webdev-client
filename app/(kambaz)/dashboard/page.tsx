@@ -1,31 +1,68 @@
-// The Dashboard adds, edits, and deletes courses in the store
+// The Dashboard loads the courses from the server and sends every change back
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
-import {
-  emptyCourse,
-  useCoursesStore,
-  type Course,
-} from "../store/coursesStore";
-import { useEnrollmentsStore } from "../store/enrollmentsStore";
+import * as client from "../courses/client";
+import { type Course } from "../courses/client";
 import { useAccountContext } from "../account/AccountContext";
+const emptyCourse: Course = {
+  _id: "0",
+  name: "New Course",
+  number: "New Number",
+  startDate: "2023-09-10",
+  endDate: "2023-12-15",
+  department: "D123",
+  credits: 4,
+  description: "New Description",
+  image: "/images/reactjs.jpg",
+  term: "Fall 2026",
+};
 export default function Dashboard() {
-  const courses = useCoursesStore((state) => state.courses);
-  const addCourse = useCoursesStore((state) => state.addCourse);
-  const updateCourse = useCoursesStore((state) => state.updateCourse);
-  const enrollments = useEnrollmentsStore((state) => state.enrollments);
   const { currentUser } = useAccountContext();
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [myCourses, setMyCourses] = useState<Course[]>([]);
   const [course, setCourse] = useState<Course>(emptyCourse);
   const [showAllCourses, setShowAllCourses] = useState(false);
+  const fetchCourses = async () => {
+    try {
+      const allCourses = await client.fetchAllCourses();
+      if (currentUser) {
+        const enrolledCourses = await client.findMyCourses();
+        setMyCourses(enrolledCourses);
+        setCourses(showAllCourses ? allCourses : enrolledCourses);
+      } else {
+        setMyCourses([]);
+        setCourses(allCourses);
+      }
+    } catch {
+      setCourses([]);
+    }
+  };
+  useEffect(() => {
+    fetchCourses();
+  }, [currentUser, showAllCourses]);
+  const addCourse = async () => {
+    await client.createCourse(course);
+    await fetchCourses();
+  };
+  const updateCourse = async () => {
+    await client.updateCourse(course);
+    await fetchCourses();
+  };
+  const deleteCourse = async (courseId: string) => {
+    await client.deleteCourse(courseId);
+    await fetchCourses();
+  };
+  const enroll = async (courseId: string) => {
+    await client.enrollIntoCourse(courseId);
+    await fetchCourses();
+  };
+  const unenroll = async (courseId: string) => {
+    await client.unenrollFromCourse(courseId);
+    await fetchCourses();
+  };
   const isEnrolled = (courseId: string) =>
-    enrollments.some(
-      (enrollment) =>
-        enrollment.user === currentUser?._id && enrollment.course === courseId,
-    );
-  const visibleCourses =
-    currentUser && !showAllCourses
-      ? courses.filter((c) => isEnrolled(c._id))
-      : courses;
+    myCourses.some((c) => c._id === courseId);
   return (
     <div id="wd-dashboard">
       <div className="flex items-center justify-between">
@@ -48,7 +85,7 @@ export default function Dashboard() {
           type="button"
           className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
           id="wd-add-new-course-click"
-          onClick={() => addCourse(course)}
+          onClick={addCourse}
         >
           Add
         </button>
@@ -56,7 +93,7 @@ export default function Dashboard() {
           type="button"
           className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium"
           id="wd-update-course-click"
-          onClick={() => updateCourse(course)}
+          onClick={updateCourse}
         >
           Update
         </button>
@@ -90,21 +127,22 @@ export default function Dashboard() {
         id="wd-course-start-date"
       />
       <hr />
-      <h2 id="wd-dashboard-published">
-        Published Courses ({visibleCourses.length})
-      </h2>
+      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
       <hr />
       <div
         id="wd-dashboard-courses"
         className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
       >
-        {visibleCourses.map((c) => (
+        {courses.map((c) => (
           <CourseCard
             key={c._id}
             course={c}
             onEdit={() => setCourse(c)}
-            userId={currentUser?._id}
+            onDelete={() => deleteCourse(c._id)}
+            signedIn={currentUser !== null}
             enrolled={isEnrolled(c._id)}
+            onEnroll={() => enroll(c._id)}
+            onUnenroll={() => unenroll(c._id)}
           />
         ))}
       </div>

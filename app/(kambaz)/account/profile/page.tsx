@@ -1,24 +1,37 @@
-// Profile fills the form from the signed in user
+// Profile asks the server who is signed in and saves changes back to it
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import * as client from "../client";
 import { useAccountContext, type User } from "../AccountContext";
 
 export default function Profile() {
   const [profile, setProfile] = useState<User | null>(null);
-  const { currentUser, setCurrentUser } = useAccountContext();
+  const { setCurrentUser } = useAccountContext();
   const router = useRouter();
-  useEffect(() => {
-    if (!currentUser) {
+  const fetchProfile = async () => {
+    try {
+      const currentUser = await client.profile();
+      setCurrentUser(currentUser);
+      setProfile(currentUser);
+    } catch {
       router.push("/account/signin");
-      return;
     }
-    setProfile(currentUser);
-  }, [currentUser, router]);
-  const signout = () => {
+  };
+  const updateProfile = async () => {
+    if (!profile) return;
+    const updatedProfile = await client.updateUser(profile);
+    setCurrentUser(updatedProfile);
+    setProfile(updatedProfile);
+  };
+  const signout = async () => {
+    await client.signout();
     setCurrentUser(null);
     router.push("/account/signin");
   };
+  useEffect(() => {
+    fetchProfile();
+  }, []);
   if (!profile) return null;
   return (
     <div id="wd-profile-screen" className="max-w-sm">
@@ -75,7 +88,7 @@ export default function Profile() {
       <button
         type="button"
         id="wd-update-profile-btn"
-        onClick={() => setCurrentUser(profile)}
+        onClick={updateProfile}
         className="mb-2 block w-full rounded bg-blue-600 px-3 py-2 text-center text-white"
       >
         Update

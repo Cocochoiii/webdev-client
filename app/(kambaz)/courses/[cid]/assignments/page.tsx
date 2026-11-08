@@ -1,20 +1,28 @@
-// The Assignments screen lists, adds, and deletes this course's assignments
+// The Assignments screen loads this course's assignments from the server
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import AssignmentItem from "./AssignmentItem";
-import { useAssignmentsStore } from "../../../store/assignmentsStore";
+import * as client from "./client";
+import { type Assignment } from "./client";
 export default function Assignments() {
   const { cid } = useParams();
   const courseId = String(cid);
   const router = useRouter();
-  const allAssignments = useAssignmentsStore((state) => state.assignments);
-  const deleteAssignment = useAssignmentsStore((state) => state.deleteAssignment);
-  const assignments = allAssignments.filter(
-    (assignment) => assignment.course === courseId,
-  );
+  const [assignments, setAssignments] = useState<Assignment[]>([]);
   const [deleteId, setDeleteId] = useState<string | null>(null);
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(courseId);
+    setAssignments(assignments);
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, [courseId]);
+  const deleteAssignment = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    setAssignments(assignments.filter((a) => a._id !== assignmentId));
+  };
   return (
     <div id="wd-assignments">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">

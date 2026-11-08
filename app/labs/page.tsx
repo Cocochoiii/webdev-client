@@ -1,5 +1,6 @@
 // The Labs home page shows my name and links to every lab
 import Link from "next/link";
+const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 
 export default function Labs() {
   return (
@@ -23,6 +24,21 @@ export default function Labs() {
           rel="noreferrer"
         >
           My GitHub repository: Cocochoiii/webdev-client
+        </a>
+      </p>
+      <p>
+        <a
+          id="wd-github-server"
+          href="https://github.com/Cocochoiii/webdev-server"
+          target="_blank"
+          rel="noreferrer"
+        >
+          My server repository: Cocochoiii/webdev-server
+        </a>
+      </p>
+      <p>
+        <a id="wd-server-link" href={HTTP_SERVER} target="_blank" rel="noreferrer">
+          My server on Render: {HTTP_SERVER}
         </a>
       </p>
     </div>

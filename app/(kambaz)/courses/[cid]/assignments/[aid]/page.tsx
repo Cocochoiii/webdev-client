@@ -1,30 +1,43 @@
-// The editor creates a new assignment or saves changes to one
+// The editor creates a new assignment or saves changes to one on the server
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import {
-  emptyAssignment,
-  useAssignmentsStore,
-  type Assignment,
-} from "../../../../store/assignmentsStore";
+import * as client from "../client";
+import { type Assignment } from "../client";
+const emptyAssignment: Assignment = {
+  _id: "new",
+  title: "New Assignment",
+  course: "",
+  description: "New Description",
+  points: 100,
+  due: "2026-12-11",
+  available: "2026-11-27",
+  until: "2026-12-11",
+};
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
   const courseId = String(cid);
   const assignmentId = String(aid);
   const router = useRouter();
-  const assignments = useAssignmentsStore((state) => state.assignments);
-  const addAssignment = useAssignmentsStore((state) => state.addAssignment);
-  const updateAssignment = useAssignmentsStore((state) => state.updateAssignment);
-  const found = assignments.find((a) => a._id === assignmentId);
-  const [assignment, setAssignment] = useState<Assignment>(
-    found ?? { ...emptyAssignment, course: courseId },
-  );
-  const save = () => {
+  const [assignment, setAssignment] = useState<Assignment>({
+    ...emptyAssignment,
+    course: courseId,
+  });
+  const fetchAssignment = async () => {
+    if (assignmentId === "new") return;
+    const assignments: Assignment[] = await client.findAssignmentsForCourse(courseId);
+    const found = assignments.find((a) => a._id === assignmentId);
+    if (found) setAssignment(found);
+  };
+  useEffect(() => {
+    fetchAssignment();
+  }, [assignmentId]);
+  const save = async () => {
     if (assignmentId === "new") {
-      addAssignment({ ...assignment, course: courseId });
+      await client.createAssignmentForCourse(courseId, { ...assignment, course: courseId });
     } else {
-      updateAssignment(assignment);
+      await client.updateAssignment(assignment);
     }
     router.push(`/courses/${courseId}/assignments`);
   };

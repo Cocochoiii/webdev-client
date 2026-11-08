@@ -1,12 +1,12 @@
-// The course layout gets the course from the store
+// The course layout asks the server for the course name
 "use client";
 import { ReactNode, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { FaAlignJustify } from "react-icons/fa6";
 import CourseNavigation from "./Navigation";
 import Breadcrumb from "./Breadcrumb";
-import { useCoursesStore } from "../../store/coursesStore";
-import { useEnrollmentsStore } from "../../store/enrollmentsStore";
+import * as client from "../client";
+import { type Course } from "../client";
 import { useAccountContext } from "../../account/AccountContext";
 export default function CoursesLayout({
   children,
@@ -15,20 +15,27 @@ export default function CoursesLayout({
 }>) {
   const { cid } = useParams();
   const courseId = typeof cid === "string" ? cid : "";
-  const courses = useCoursesStore((state) => state.courses);
-  const course = courses.find((c) => c._id === courseId);
-  const enrollments = useEnrollmentsStore((state) => state.enrollments);
   const { currentUser } = useAccountContext();
   const router = useRouter();
+  const [course, setCourse] = useState<Course | undefined>(undefined);
   const [showCourseNav, setShowCourseNav] = useState(true);
-  const enrolled = enrollments.some(
-    (e) => e.user === currentUser?._id && e.course === courseId,
-  );
-  useEffect(() => {
-    if (currentUser && !enrolled) {
-      router.push("/dashboard");
+  const fetchCourse = async () => {
+    try {
+      const courses: Course[] = await client.fetchAllCourses();
+      setCourse(courses.find((c) => c._id === courseId));
+      if (currentUser) {
+        const myCourses: Course[] = await client.findMyCourses();
+        if (!myCourses.some((c) => c._id === courseId)) {
+          router.push("/dashboard");
+        }
+      }
+    } catch {
+      setCourse(undefined);
     }
-  }, [currentUser, enrolled, router]);
+  };
+  useEffect(() => {
+    fetchCourse();
+  }, [courseId, currentUser]);
   return (
     <div id="wd-courses">
       <h2 className="text-2xl font-semibold text-red-600">
