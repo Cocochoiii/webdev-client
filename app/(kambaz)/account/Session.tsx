@@ -1,20 +1,30 @@
 // When Kambaz loads, ask the server who is already signed in
 "use client";
-import { useEffect, type ReactNode } from "react";
-import * as client from "./client";
+import { useEffect, useState, type ReactNode } from "react";
 import { useAccountContext } from "./AccountContext";
-export default function Session({ children }: { children: ReactNode }) {
+import * as client from "./client";
+export default function Session({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const [pending, setPending] = useState(true);
   const { setCurrentUser } = useAccountContext();
-  const fetchProfile = async () => {
-    try {
-      const currentUser = await client.profile();
-      setCurrentUser(currentUser);
-    } catch {
-      setCurrentUser(null);
-    }
-  };
   useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const currentUser = await client.profile();
+        setCurrentUser(currentUser);
+      } catch {
+        setCurrentUser(null);
+      } finally {
+        setPending(false);
+      }
+    };
     fetchProfile();
-  }, []);
+  }, [setCurrentUser]);
+  if (pending) {
+    return null;
+  }
   return children;
 }
