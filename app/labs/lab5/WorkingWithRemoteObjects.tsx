@@ -1,4 +1,4 @@
-// These links read and change one assignment and one module on the server
+// These links read and change the server's assignment and module
 "use client";
 import { useState } from "react";
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;

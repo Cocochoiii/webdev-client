@@ -1,4 +1,4 @@
-// The People screen loads the users enrolled in this course from the server
+// The People screen loads this course's users from the server
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";

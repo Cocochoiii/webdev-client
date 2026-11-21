@@ -13,7 +13,7 @@ export default function HttpClient() {
       setWelcomeOnClick(message);
       setErrorMessage("");
     } catch {
-      setErrorMessage("Unable to reach the server. Is it running on port 4000?");
+      setErrorMessage("Unable to reach the server.");
     }
   };
   const fetchWelcomeOnLoad = async () => {
@@ -22,7 +22,7 @@ export default function HttpClient() {
       setWelcomeOnLoad(welcome);
       setErrorMessage("");
     } catch {
-      setErrorMessage("Unable to reach the server. Is it running on port 4000?");
+      setErrorMessage("Unable to reach the server.");
     }
     setLoading(false);
   };

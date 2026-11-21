@@ -1,4 +1,4 @@
-// Every course, module, and enrollment request to the server goes through this file
+// Course, module, and enrollment requests all go through this file
 import axios from "axios";
 const axiosWithCredentials = axios.create({ withCredentials: true });
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;

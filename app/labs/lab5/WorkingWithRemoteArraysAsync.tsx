@@ -1,4 +1,4 @@
-// The todos load with axios and every button changes them on the server first
+// The todos load with axios and every button saves to the server
 "use client";
 import { useEffect, useState } from "react";
 import { FaPencilAlt, FaPlusCircle, FaTrash } from "react-icons/fa";

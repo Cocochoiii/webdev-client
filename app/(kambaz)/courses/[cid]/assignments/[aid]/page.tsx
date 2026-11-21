@@ -1,4 +1,4 @@
-// The editor creates a new assignment or saves changes to one on the server
+// The editor creates or updates one assignment on the server
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";

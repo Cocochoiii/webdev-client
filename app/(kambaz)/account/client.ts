@@ -1,4 +1,4 @@
-// Every account request to the server goes through this file with the cookie
+// Every account request goes through this file with the cookie
 import axios from "axios";
 const axiosWithCredentials = axios.create({ withCredentials: true });
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
@@ -12,7 +12,7 @@ export const signup = async (user: { username: string; password: string }) => {
   return response.data;
 };
 export const profile = async () => {
-  const response = await axiosWithCredentials.post(`${USERS_API}/profile`);
+  const response = await axiosWithCredentials.get(`${USERS_API}/profile`);
   return response.data;
 };
 export const signout = async () => {

@@ -1,4 +1,4 @@
-// The assignment loads from the server and the title saves back with axios
+// The assignment loads with axios and the title saves back
 "use client";
 import { useEffect, useState } from "react";
 import * as client from "./client";

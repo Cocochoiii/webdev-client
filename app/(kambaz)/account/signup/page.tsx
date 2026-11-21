@@ -1,4 +1,4 @@
-// Sign up posts a new user to the server and signs them in
+// Sign up saves a new user on the server and signs in
 "use client";
 import { useState, type FormEvent } from "react";
 import Link from "next/link";

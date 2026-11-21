@@ -1,4 +1,4 @@
-// Profile asks the server who is signed in and saves changes back to it
+// Profile shows the signed in user and saves changes to the server
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";

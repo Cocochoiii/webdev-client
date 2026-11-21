@@ -1,4 +1,4 @@
-// The Dashboard loads the courses from the server and sends every change back
+// The Dashboard loads courses from the server and saves every change
 "use client";
 import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";

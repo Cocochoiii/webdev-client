@@ -1,9 +1,10 @@
-// A next.js route handler that reads a, b, and operation from the query string
+// The calculator route handler reads a, b, and the operation
 import type { NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
-  const a = parseFloat(request.nextUrl.searchParams.get("a") ?? "");
-  const b = parseFloat(request.nextUrl.searchParams.get("b") ?? "");
-  const operation = request.nextUrl.searchParams.get("operation");
+  const { searchParams } = request.nextUrl;
+  const a = parseFloat(searchParams.get("a") ?? "");
+  const b = parseFloat(searchParams.get("b") ?? "");
+  const operation = searchParams.get("operation");
   if (Number.isNaN(a) || Number.isNaN(b)) {
     return Response.json({ error: "Invalid numbers" }, { status: 400 });
   }

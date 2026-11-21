@@ -1,4 +1,4 @@
-// The calculator sends a, b, and the operation to the next.js route handler
+// The calculator sends a, b, and the operation to my route handler
 "use client";
 import { useState } from "react";
 const symbol = (op: string) => {

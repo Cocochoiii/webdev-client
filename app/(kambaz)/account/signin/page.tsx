@@ -1,4 +1,4 @@
-// Sign in posts the credentials to the server and saves the user it sends back
+// Sign in sends the credentials to the server and saves the user
 "use client";
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
