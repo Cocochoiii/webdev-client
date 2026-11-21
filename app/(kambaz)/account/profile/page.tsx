@@ -9,17 +9,8 @@ export default function Profile() {
   const [profile, setProfile] = useState<User | null>(null);
   const [saved, setSaved] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const { setCurrentUser } = useAccountContext();
+  const { currentUser, setCurrentUser } = useAccountContext();
   const router = useRouter();
-  const fetchProfile = async () => {
-    try {
-      const currentUser = await client.profile();
-      setCurrentUser(currentUser);
-      setProfile(currentUser);
-    } catch {
-      router.push("/account/signin");
-    }
-  };
   const updateProfile = async () => {
     if (!profile) return;
     try {
@@ -39,8 +30,12 @@ export default function Profile() {
     router.push("/account/signin");
   };
   useEffect(() => {
-    fetchProfile();
-  }, []);
+    if (!currentUser) {
+      router.push("/account/signin");
+      return;
+    }
+    setProfile(currentUser);
+  }, [currentUser, router]);
   if (!profile) return null;
   return (
     <div id="wd-profile-screen" className="max-w-sm">

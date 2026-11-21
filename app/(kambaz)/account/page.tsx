@@ -1,21 +1,12 @@
-// Account checks the server, then opens Profile or Sign in
+// Account opens Profile when someone is signed in, else Sign in
 "use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import * as client from "./client";
-
+import { redirect } from "next/navigation";
+import { useAccountContext } from "./AccountContext";
 export default function AccountPage() {
-  const router = useRouter();
-  const checkProfile = async () => {
-    try {
-      await client.profile();
-      router.push("/account/profile");
-    } catch {
-      router.push("/account/signin");
-    }
-  };
-  useEffect(() => {
-    checkProfile();
-  }, []);
-  return null;
+  const { currentUser } = useAccountContext();
+  if (!currentUser) {
+    redirect("/account/signin");
+  } else {
+    redirect("/account/profile");
+  }
 }

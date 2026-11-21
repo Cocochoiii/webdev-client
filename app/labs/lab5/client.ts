@@ -3,6 +3,13 @@ import axios from "axios";
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 const ASSIGNMENT_API = `${HTTP_SERVER}/lab5/assignment`;
 const TODOS_API = `${HTTP_SERVER}/lab5/todos`;
+export const fetchHello = async () => {
+  const response = await fetch("/api/lab5/hello");
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  return response.json();
+};
 export const fetchWelcomeMessage = async () => {
   const response = await axios.get(`${HTTP_SERVER}/lab5/welcome`);
   return response.data;
