@@ -9,6 +9,7 @@ const LINKS = [
   { href: "/labs/lab3", id: "wd-toc-lab3-link", label: "Lab 3", match: (p: string) => p.includes("/lab3") },
   { href: "/labs/lab4", id: "wd-toc-lab4-link", label: "Lab 4", match: (p: string) => p.includes("/lab4") },
   { href: "/labs/lab5", id: "wd-toc-lab5-link", label: "Lab 5", match: (p: string) => p.includes("/lab5") },
+  { href: "/labs/lab6", id: "wd-toc-lab6-link", label: "Lab 6", match: (p: string) => p.includes("/lab6") },
   { href: "https://kambaz.dev/book/ch1", id: "wd-toc-book-link", label: "Chapter 1", match: () => false },
   { href: "/", id: "wd-kambaz-link", label: "Kambaz", match: () => false },
   { href: "https://kambaz.dev/book/ch3", id: "wd-book-ch3-link", label: "Book Ch3", match: () => false },

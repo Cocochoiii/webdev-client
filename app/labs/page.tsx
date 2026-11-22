@@ -14,6 +14,7 @@ export default function Labs() {
         <li><Link href="/labs/lab3" id="wd-lab3-link">Lab 3: JavaScript Fundamentals</Link></li>
         <li><Link href="/labs/lab4" id="wd-lab4-link">Lab 4: State and Redux</Link></li>
         <li><Link href="/labs/lab5" id="wd-lab5-link">Lab 5: Node and Express</Link></li>
+        <li><Link href="/labs/lab6" id="wd-lab6-link">Lab 6: MongoDB and Mongoose</Link></li>
         <li><Link href="/" id="wd-kambaz-link">Kambaz</Link></li>
       </ul>
       <p>

@@ -21,8 +21,8 @@ export default function CoursesLayout({
   const [showCourseNav, setShowCourseNav] = useState(true);
   const fetchCourse = async () => {
     try {
-      const courses: Course[] = await client.fetchAllCourses();
-      setCourse(courses.find((c) => c._id === courseId));
+      const course: Course = await client.findCourseById(courseId);
+      setCourse(course ?? undefined);
       if (currentUser) {
         const myCourses: Course[] = await client.findMyCourses();
         if (!myCourses.some((c) => c._id === courseId)) {

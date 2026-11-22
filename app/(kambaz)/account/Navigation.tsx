@@ -1,4 +1,4 @@
-// The account menu shows Profile only when someone is signed in
+// The account menu shows Profile when signed in and Users for admins
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,9 +8,17 @@ import "../kambaz.css";
 export default function AccountNavigation() {
   const { currentUser } = useAccountContext();
   const links = currentUser
-    ? (["profile"] as const)
+    ? currentUser.role === "ADMIN"
+      ? (["profile", "users"] as const)
+      : (["profile"] as const)
     : (["signin", "signup"] as const);
   const pathname = usePathname() ?? "";
+  const labels = {
+    signin: "Signin",
+    signup: "Signup",
+    profile: "Profile",
+    users: "Users",
+  };
   return (
     <div id="wd-account-navigation" className="wd list-group rounded-none text-lg">
       {links.map((link) => (
@@ -23,11 +31,7 @@ export default function AccountNavigation() {
               : "list-group-item border-0 text-red-600"
           }
         >
-          {link === "signin"
-            ? "Signin"
-            : link === "signup"
-              ? "Signup"
-              : "Profile"}
+          {labels[link]}
         </Link>
       ))}
     </div>

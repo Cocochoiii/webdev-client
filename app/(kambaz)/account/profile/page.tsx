@@ -13,8 +13,10 @@ export default function Profile() {
   const router = useRouter();
   const updateProfile = async () => {
     if (!profile) return;
+    const { password, ...rest } = profile;
+    const updates = password ? profile : rest;
     try {
-      const updatedProfile = await client.updateUser(profile);
+      const updatedProfile = await client.updateUser(updates);
       setCurrentUser(updatedProfile);
       setProfile(updatedProfile);
       setSaved(true);
@@ -65,7 +67,7 @@ export default function Profile() {
         placeholder="password"
         type="password"
         className="wd-password mb-2 w-full rounded border border-neutral-300 px-3 py-2"
-        value={profile.password}
+        value={profile.password ?? ""}
         onChange={(e) => {
           setSaved(false);
           setProfile({ ...profile, password: e.target.value });

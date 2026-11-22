@@ -1,4 +1,4 @@
-// The Dashboard loads courses from the server and saves every change
+// The Dashboard loads courses from the database and saves every change
 "use client";
 import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
@@ -79,9 +79,10 @@ export default function Dashboard() {
     setSaving(false);
   };
   const enroll = async (courseId: string) => {
+    if (!currentUser) return;
     setSaving(true);
     try {
-      await client.enrollIntoCourse(courseId);
+      await client.enrollIntoCourse(currentUser._id, courseId);
       await fetchCourses();
     } catch {
       setErrorMessage("The server did not save that change. Try again.");
@@ -89,9 +90,10 @@ export default function Dashboard() {
     setSaving(false);
   };
   const unenroll = async (courseId: string) => {
+    if (!currentUser) return;
     setSaving(true);
     try {
-      await client.unenrollFromCourse(courseId);
+      await client.unenrollFromCourse(currentUser._id, courseId);
       await fetchCourses();
     } catch {
       setErrorMessage("The server did not save that change. Try again.");

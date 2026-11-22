@@ -1,4 +1,4 @@
-// Every account request goes through this file with the cookie
+// Every account and user request goes through this file
 import axios from "axios";
 const axiosWithCredentials = axios.create({ withCredentials: true });
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
@@ -19,19 +19,31 @@ export const signout = async () => {
   const response = await axiosWithCredentials.post(`${USERS_API}/signout`);
   return response.data;
 };
-export const updateUser = async (user: { _id: string }) => {
-  const response = await axiosWithCredentials.put(`${USERS_API}/${user._id}`, user);
+export const findAllUsers = async () => {
+  const response = await axiosWithCredentials.get(USERS_API);
   return response.data;
 };
-export const createUser = async (user: { username: string }) => {
-  const response = await axiosWithCredentials.post(USERS_API, user);
+export const findUsersByRole = async (role: string) => {
+  const response = await axios.get(`${USERS_API}?role=${role}`);
+  return response.data;
+};
+export const findUsersByPartialName = async (name: string) => {
+  const response = await axios.get(`${USERS_API}?name=${name}`);
+  return response.data;
+};
+export const findUserById = async (id: string) => {
+  const response = await axios.get(`${USERS_API}/${id}`);
+  return response.data;
+};
+export const createUser = async (user: any) => {
+  const response = await axios.post(`${USERS_API}`, user);
+  return response.data;
+};
+export const updateUser = async (user: any) => {
+  const response = await axiosWithCredentials.put(`${USERS_API}/${user._id}`, user);
   return response.data;
 };
 export const deleteUser = async (userId: string) => {
   const response = await axios.delete(`${USERS_API}/${userId}`);
-  return response.data;
-};
-export const findUsersForCourse = async (courseId: string) => {
-  const response = await axios.get(`${HTTP_SERVER}/api/courses/${courseId}/users`);
   return response.data;
 };
