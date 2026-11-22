@@ -54,7 +54,7 @@ All routes use lower case, the same way the book writes them.
 | `/courses/[cid]/modules` | nested modules and lessons |
 | `/courses/[cid]/assignments` | assignment list |
 | `/courses/[cid]/assignments/[aid]` | assignment editor (`new` makes a new one) |
-| `/courses/[cid]/people/table` | people table |
+| `/courses/[cid]/people/table` | people table with add, edit, and delete |
 
 ## Running it
 
